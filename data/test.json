@@ -1,0 +1,1163 @@
+[{
+  "_id": {
+    "$oid": "662d0a2a5fcb2aa0a1f0b63a"
+  },
+  "testId": "test1",
+  "questions": [
+    {
+      "question": "What is the primary focus of the Global Economic Trends Summit?",
+      "correctOption": "B",
+      "options": [
+        {
+          "id": "A",
+          "text": "Analyzing historical economic data",
+          "_id": {
+            "$oid": "662d0a2a5fcb2aa0a1f0b63c"
+          }
+        },
+        {
+          "id": "B",
+          "text": " Exploring emerging economic trends",
+          "_id": {
+            "$oid": "662d0a2a5fcb2aa0a1f0b63d"
+          }
+        },
+        {
+          "id": "C",
+          "text": "Evaluating regional economic policies",
+          "_id": {
+            "$oid": "662d0a2a5fcb2aa0a1f0b63e"
+          }
+        },
+        {
+          "id": "D",
+          "text": "Discussing cultural impacts on the economy",
+          "_id": {
+            "$oid": "662d0a2a5fcb2aa0a1f0b63f"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "662d0a2a5fcb2aa0a1f0b63b"
+      }
+    },
+    {
+      "question": "In the Introduction to Behavioral Economics seminar, what field intersects with economics?",
+      "correctOption": "C",
+      "options": [
+        {
+          "id": "A",
+          "text": "Sociology",
+          "_id": {
+            "$oid": "662d0a2a5fcb2aa0a1f0b641"
+          }
+        },
+        {
+          "id": "B",
+          "text": "Anthropology",
+          "_id": {
+            "$oid": "662d0a2a5fcb2aa0a1f0b642"
+          }
+        },
+        {
+          "id": "C",
+          "text": "Psychology",
+          "_id": {
+            "$oid": "662d0a2a5fcb2aa0a1f0b643"
+          }
+        },
+        {
+          "id": "D",
+          "text": "Political Science",
+          "_id": {
+            "$oid": "662d0a2a5fcb2aa0a1f0b644"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "662d0a2a5fcb2aa0a1f0b640"
+      }
+    },
+    {
+      "question": "Which event discusses real-world examples of microeconomic principles?",
+      "correctOption": "C",
+      "options": [
+        {
+          "id": "A",
+          "text": "Global Economic Trends Summit",
+          "_id": {
+            "$oid": "662d0a2a5fcb2aa0a1f0b646"
+          }
+        },
+        {
+          "id": "B",
+          "text": "Introduction to Behavioral Economics",
+          "_id": {
+            "$oid": "662d0a2a5fcb2aa0a1f0b647"
+          }
+        },
+        {
+          "id": "C",
+          "text": "Practical Applications of Microeconomics",
+          "_id": {
+            "$oid": "662d0a2a5fcb2aa0a1f0b648"
+          }
+        },
+        {
+          "id": "D",
+          "text": "Future of Global Trade Policies",
+          "_id": {
+            "$oid": "662d0a2a5fcb2aa0a1f0b649"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "662d0a2a5fcb2aa0a1f0b645"
+      }
+    }
+  ],
+  "target": 2,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662d0d87aba4698635059fec"
+  },
+  "testId": "test2",
+  "questions": [
+    {
+      "question": "What is the theme of the Future of Global Trade Policies seminar?",
+      "correctOption": "C",
+      "options": [
+        {
+          "id": "A",
+          "text": "Historical trade agreements",
+          "_id": {
+            "$oid": "662d0d87aba4698635059fee"
+          }
+        },
+        {
+          "id": "B",
+          "text": "Impact of tariffs on global trade",
+          "_id": {
+            "$oid": "662d0d87aba4698635059fef"
+          }
+        },
+        {
+          "id": "C",
+          "text": "Potential future trade policies",
+          "_id": {
+            "$oid": "662d0d87aba4698635059ff0"
+          }
+        },
+        {
+          "id": "D",
+          "text": "Regional trade alliances",
+          "_id": {
+            "$oid": "662d0d87aba4698635059ff1"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "662d0d87aba4698635059fed"
+      }
+    },
+    {
+      "question": "How many participants were expected at the Future of Global Trade Policies seminar?",
+      "correctOption": "B",
+      "options": [
+        {
+          "id": "A",
+          "text": "80",
+          "_id": {
+            "$oid": "662d0d87aba4698635059ff3"
+          }
+        },
+        {
+          "id": "B",
+          "text": "90",
+          "_id": {
+            "$oid": "662d0d87aba4698635059ff4"
+          }
+        },
+        {
+          "id": "C",
+          "text": "100",
+          "_id": {
+            "$oid": "662d0d87aba4698635059ff5"
+          }
+        },
+        {
+          "id": "D",
+          "text": "110",
+          "_id": {
+            "$oid": "662d0d87aba4698635059ff6"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "662d0d87aba4698635059ff2"
+      }
+    },
+    {
+      "question": "Where did the Future of Global Trade Policies seminar take place?",
+      "correctOption": "C",
+      "options": [
+        {
+          "id": "A",
+          "text": "Hall A",
+          "_id": {
+            "$oid": "662d0d87aba4698635059ff8"
+          }
+        },
+        {
+          "id": "B",
+          "text": "Hall B",
+          "_id": {
+            "$oid": "662d0d87aba4698635059ff9"
+          }
+        },
+        {
+          "id": "C",
+          "text": "Hall C",
+          "_id": {
+            "$oid": "662d0d87aba4698635059ffa"
+          }
+        },
+        {
+          "id": "D",
+          "text": "Hall D",
+          "_id": {
+            "$oid": "662d0d87aba4698635059ffb"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "662d0d87aba4698635059ff7"
+      }
+    }
+  ],
+  "target": 2,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662d25b5aba469863505a74b"
+  },
+  "testId": "test3",
+  "questions": [
+    {
+      "question": "How do you say \"hello\" in French?",
+      "correctOption": "A",
+      "options": [
+        {
+          "id": "A",
+          "text": "Bonjour",
+          "_id": {
+            "$oid": "662d25b5aba469863505a74d"
+          }
+        },
+        {
+          "id": "B",
+          "text": "Hola",
+          "_id": {
+            "$oid": "662d25b5aba469863505a74e"
+          }
+        },
+        {
+          "id": "C",
+          "text": "Ciao",
+          "_id": {
+            "$oid": "662d25b5aba469863505a74f"
+          }
+        },
+        {
+          "id": "D",
+          "text": "Hallo",
+          "_id": {
+            "$oid": "662d25b5aba469863505a750"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "662d25b5aba469863505a74c"
+      }
+    },
+    {
+      "question": "What is the Spanish word for \"goodbye\"?",
+      "correctOption": "B",
+      "options": [
+        {
+          "id": "A",
+          "text": "Bonjour",
+          "_id": {
+            "$oid": "662d25b5aba469863505a752"
+          }
+        },
+        {
+          "id": "B",
+          "text": "Adiós",
+          "_id": {
+            "$oid": "662d25b5aba469863505a753"
+          }
+        },
+        {
+          "id": "C",
+          "text": "Au revoir",
+          "_id": {
+            "$oid": "662d25b5aba469863505a754"
+          }
+        },
+        {
+          "id": "D",
+          "text": "Auf Wiedersehen",
+          "_id": {
+            "$oid": "662d25b5aba469863505a755"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "662d25b5aba469863505a751"
+      }
+    },
+    {
+      "question": "Which of the following is a common greeting in French?",
+      "correctOption": "D",
+      "options": [
+        {
+          "id": "A",
+          "text": "Gracias",
+          "_id": {
+            "$oid": "662d25b5aba469863505a757"
+          }
+        },
+        {
+          "id": "B",
+          "text": "Merci",
+          "_id": {
+            "$oid": "662d25b5aba469863505a758"
+          }
+        },
+        {
+          "id": "C",
+          "text": "S'il vous plaît",
+          "_id": {
+            "$oid": "662d25b5aba469863505a759"
+          }
+        },
+        {
+          "id": "D",
+          "text": "Bonsoir",
+          "_id": {
+            "$oid": "662d25b5aba469863505a75a"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "662d25b5aba469863505a756"
+      }
+    }
+  ],
+  "target": 2,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662d286aaba469863505a812"
+  },
+  "testId": "test4",
+  "questions": [
+    {
+      "question": "What is the German word for \"thank you\"?",
+      "correctOption": "B",
+      "options": [
+        {
+          "id": "A",
+          "text": "Gracias",
+          "_id": {
+            "$oid": "662d286aaba469863505a814"
+          }
+        },
+        {
+          "id": "B",
+          "text": "Danke",
+          "_id": {
+            "$oid": "662d286aaba469863505a815"
+          }
+        },
+        {
+          "id": "C",
+          "text": "Merci",
+          "_id": {
+            "$oid": "662d286aaba469863505a816"
+          }
+        },
+        {
+          "id": "D",
+          "text": "Grazie",
+          "_id": {
+            "$oid": "662d286aaba469863505a817"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "662d286aaba469863505a813"
+      }
+    },
+    {
+      "question": "Which phrase means \"How are you?\" in German?",
+      "correctOption": "A",
+      "options": [
+        {
+          "id": "A",
+          "text": "Wie geht's?",
+          "_id": {
+            "$oid": "662d286aaba469863505a819"
+          }
+        },
+        {
+          "id": "B",
+          "text": "¿Qué tal?",
+          "_id": {
+            "$oid": "662d286aaba469863505a81a"
+          }
+        },
+        {
+          "id": "C",
+          "text": "Comment ça va?",
+          "_id": {
+            "$oid": "662d286aaba469863505a81b"
+          }
+        },
+        {
+          "id": "D",
+          "text": "Come stai?",
+          "_id": {
+            "$oid": "662d286aaba469863505a81c"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "662d286aaba469863505a818"
+      }
+    },
+    {
+      "question": "What does \"Guten Tag\" mean in English?",
+      "correctOption": "D",
+      "options": [
+        {
+          "id": "A",
+          "text": "Goodbye",
+          "_id": {
+            "$oid": "662d286aaba469863505a81e"
+          }
+        },
+        {
+          "id": "B",
+          "text": "Good morning",
+          "_id": {
+            "$oid": "662d286aaba469863505a81f"
+          }
+        },
+        {
+          "id": "C",
+          "text": "Good evening",
+          "_id": {
+            "$oid": "662d286aaba469863505a820"
+          }
+        },
+        {
+          "id": "D",
+          "text": "Good afternoon",
+          "_id": {
+            "$oid": "662d286aaba469863505a821"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "662d286aaba469863505a81d"
+      }
+    }
+  ],
+  "target": 2,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662d29d2aba469863505a88b"
+  },
+  "testId": "test5",
+  "questions": [
+    {
+      "question": "What is the Japanese word for \"thank you\"?",
+      "correctOption": "A",
+      "options": [
+        {
+          "id": "A",
+          "text": "Arigato",
+          "_id": {
+            "$oid": "662d29d2aba469863505a88d"
+          }
+        },
+        {
+          "id": "B",
+          "text": "Merci",
+          "_id": {
+            "$oid": "662d29d2aba469863505a88e"
+          }
+        },
+        {
+          "id": "C",
+          "text": "Gracias",
+          "_id": {
+            "$oid": "662d29d2aba469863505a88f"
+          }
+        },
+        {
+          "id": "D",
+          "text": "Danke",
+          "_id": {
+            "$oid": "662d29d2aba469863505a890"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "662d29d2aba469863505a88c"
+      }
+    },
+    {
+      "question": "Which phrase means \"Good morning\" in Japanese?",
+      "correctOption": "B",
+      "options": [
+        {
+          "id": "A",
+          "text": "Konnichiwa",
+          "_id": {
+            "$oid": "662d29d2aba469863505a892"
+          }
+        },
+        {
+          "id": "B",
+          "text": "Ohayō gozaimasu",
+          "_id": {
+            "$oid": "662d29d2aba469863505a893"
+          }
+        },
+        {
+          "id": "C",
+          "text": "Konbanwa",
+          "_id": {
+            "$oid": "662d29d2aba469863505a894"
+          }
+        },
+        {
+          "id": "D",
+          "text": "Sayonara",
+          "_id": {
+            "$oid": "662d29d2aba469863505a895"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "662d29d2aba469863505a891"
+      }
+    }
+  ],
+  "target": 1,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662d41c57a0614aa4fc74dbc"
+  },
+  "testId": "test6",
+  "questions": [
+    {
+      "question": "What is the main function of a plant's roots?",
+      "correctOption": "B",
+      "options": [
+        {
+          "id": "A",
+          "text": "Photosynthesis",
+          "_id": {
+            "$oid": "662d41c57a0614aa4fc74dbe"
+          }
+        },
+        {
+          "id": "B",
+          "text": "Absorption of water and nutrients",
+          "_id": {
+            "$oid": "662d41c57a0614aa4fc74dbf"
+          }
+        },
+        {
+          "id": "C",
+          "text": "Reproduction",
+          "_id": {
+            "$oid": "662d41c57a0614aa4fc74dc0"
+          }
+        },
+        {
+          "id": "D",
+          "text": "Gas exchange",
+          "_id": {
+            "$oid": "662d41c57a0614aa4fc74dc1"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "662d41c57a0614aa4fc74dbd"
+      }
+    },
+    {
+      "question": "What is the process by which plants use sunlight to make food?",
+      "correctOption": "C",
+      "options": [
+        {
+          "id": "A",
+          "text": "Respiration",
+          "_id": {
+            "$oid": "662d41c57a0614aa4fc74dc3"
+          }
+        },
+        {
+          "id": "B",
+          "text": "Transpiration",
+          "_id": {
+            "$oid": "662d41c57a0614aa4fc74dc4"
+          }
+        },
+        {
+          "id": "C",
+          "text": "Photosynthesis",
+          "_id": {
+            "$oid": "662d41c57a0614aa4fc74dc5"
+          }
+        },
+        {
+          "id": "D",
+          "text": "Germination",
+          "_id": {
+            "$oid": "662d41c57a0614aa4fc74dc6"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "662d41c57a0614aa4fc74dc2"
+      }
+    }
+  ],
+  "target": 1,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662d43f77a0614aa4fc74e77"
+  },
+  "testId": "test7",
+  "questions": [
+    {
+      "question": "Which of the following is NOT a type of plate boundary associated with earthquakes?",
+      "correctOption": "D",
+      "options": [
+        {
+          "id": "A",
+          "text": "Transform boundary",
+          "_id": {
+            "$oid": "662d43f77a0614aa4fc74e79"
+          }
+        },
+        {
+          "id": "B",
+          "text": "Convergent boundary",
+          "_id": {
+            "$oid": "662d43f77a0614aa4fc74e7a"
+          }
+        },
+        {
+          "id": "C",
+          "text": "Divergent boundary",
+          "_id": {
+            "$oid": "662d43f77a0614aa4fc74e7b"
+          }
+        },
+        {
+          "id": "D",
+          "text": "Parallel boundary",
+          "_id": {
+            "$oid": "662d43f77a0614aa4fc74e7c"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "662d43f77a0614aa4fc74e78"
+      }
+    },
+    {
+      "question": "What is the term for a sudden release of energy in the Earth's crust that creates seismic waves?",
+      "correctOption": "C",
+      "options": [
+        {
+          "id": "A",
+          "text": "Erosion",
+          "_id": {
+            "$oid": "662d43f77a0614aa4fc74e7e"
+          }
+        },
+        {
+          "id": "B",
+          "text": "Tsunami",
+          "_id": {
+            "$oid": "662d43f77a0614aa4fc74e7f"
+          }
+        },
+        {
+          "id": "C",
+          "text": "Earthquake",
+          "_id": {
+            "$oid": "662d43f77a0614aa4fc74e80"
+          }
+        },
+        {
+          "id": "D",
+          "text": "Landslide",
+          "_id": {
+            "$oid": "662d43f77a0614aa4fc74e81"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "662d43f77a0614aa4fc74e7d"
+      }
+    },
+    {
+      "question": "Which of the following volcanic hazards is a fast-moving mixture of hot gases, ash, and rocks that flows downhill from a volcano?",
+      "correctOption": "B",
+      "options": [
+        {
+          "id": "A",
+          "text": "Lava flow",
+          "_id": {
+            "$oid": "662d43f77a0614aa4fc74e83"
+          }
+        },
+        {
+          "id": "B",
+          "text": "Pyroclastic flow",
+          "_id": {
+            "$oid": "662d43f77a0614aa4fc74e84"
+          }
+        },
+        {
+          "id": "C",
+          "text": "Volcanic ashfall",
+          "_id": {
+            "$oid": "662d43f77a0614aa4fc74e85"
+          }
+        },
+        {
+          "id": "D",
+          "text": "Lahar",
+          "_id": {
+            "$oid": "662d43f77a0614aa4fc74e86"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "662d43f77a0614aa4fc74e82"
+      }
+    },
+    {
+      "question": "What is the name for a large sea wave caused by an underwater earthquake or volcanic eruption?",
+      "correctOption": "A",
+      "options": [
+        {
+          "id": "A",
+          "text": "Tsunami",
+          "_id": {
+            "$oid": "662d43f77a0614aa4fc74e88"
+          }
+        },
+        {
+          "id": "B",
+          "text": "Hurricane",
+          "_id": {
+            "$oid": "662d43f77a0614aa4fc74e89"
+          }
+        },
+        {
+          "id": "C",
+          "text": "Tornado ",
+          "_id": {
+            "$oid": "662d43f77a0614aa4fc74e8a"
+          }
+        },
+        {
+          "id": "D",
+          "text": "Flood",
+          "_id": {
+            "$oid": "662d43f77a0614aa4fc74e8b"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "662d43f77a0614aa4fc74e87"
+      }
+    }
+  ],
+  "target": 2,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662e70e1f51dfe390aa0405b"
+  },
+  "testId": "test8",
+  "questions": [
+    {
+      "question": "What is the term for the practice of monitoring, collecting, and analyzing individuals' online activities without their consent?",
+      "correctOption": "A",
+      "options": [
+        {
+          "id": "A",
+          "text": "Digital surveillance",
+          "_id": {
+            "$oid": "662e70e1f51dfe390aa0405d"
+          }
+        },
+        {
+          "id": "B",
+          "text": "Data encryption",
+          "_id": {
+            "$oid": "662e70e1f51dfe390aa0405e"
+          }
+        },
+        {
+          "id": "C",
+          "text": "Cybersecurity",
+          "_id": {
+            "$oid": "662e70e1f51dfe390aa0405f"
+          }
+        },
+        {
+          "id": "D",
+          "text": "Digital profiling",
+          "_id": {
+            "$oid": "662e70e1f51dfe390aa04060"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "662e70e1f51dfe390aa0405c"
+      }
+    },
+    {
+      "question": "Which of the following rights is most closely associated with protecting individuals' privacy in the digital realm?",
+      "correctOption": "C",
+      "options": [
+        {
+          "id": "A",
+          "text": "Right to free speech",
+          "_id": {
+            "$oid": "662e70e1f51dfe390aa04062"
+          }
+        },
+        {
+          "id": "B",
+          "text": "Right to bear arms",
+          "_id": {
+            "$oid": "662e70e1f51dfe390aa04063"
+          }
+        },
+        {
+          "id": "C",
+          "text": "Right to privacy",
+          "_id": {
+            "$oid": "662e70e1f51dfe390aa04064"
+          }
+        },
+        {
+          "id": "D",
+          "text": "Right to religious freedom",
+          "_id": {
+            "$oid": "662e70e1f51dfe390aa04065"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "662e70e1f51dfe390aa04061"
+      }
+    },
+    {
+      "question": "What term describes the censorship or suppression of information on the internet by governments or other organizations?",
+      "correctOption": "D",
+      "options": [
+        {
+          "id": "A",
+          "text": "Online filtering",
+          "_id": {
+            "$oid": "662e70e1f51dfe390aa04067"
+          }
+        },
+        {
+          "id": "B",
+          "text": "Cyberbullying",
+          "_id": {
+            "$oid": "662e70e1f51dfe390aa04068"
+          }
+        },
+        {
+          "id": "C",
+          "text": "Internet freedom",
+          "_id": {
+            "$oid": "662e70e1f51dfe390aa04069"
+          }
+        },
+        {
+          "id": "D",
+          "text": "Online censorship",
+          "_id": {
+            "$oid": "662e70e1f51dfe390aa0406a"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "662e70e1f51dfe390aa04066"
+      }
+    },
+    {
+      "question": "Which of the following measures is NOT typically used to enhance online privacy and security?",
+      "correctOption": "C",
+      "options": [
+        {
+          "id": "A",
+          "text": "Using virtual private networks (VPNs)",
+          "_id": {
+            "$oid": "662e70e1f51dfe390aa0406c"
+          }
+        },
+        {
+          "id": "B",
+          "text": "Enabling two-factor authentication (2FA)",
+          "_id": {
+            "$oid": "662e70e1f51dfe390aa0406d"
+          }
+        },
+        {
+          "id": "C",
+          "text": "Sharing passwords publicly",
+          "_id": {
+            "$oid": "662e70e1f51dfe390aa0406e"
+          }
+        },
+        {
+          "id": "D",
+          "text": "Regularly updating software and security patches",
+          "_id": {
+            "$oid": "662e70e1f51dfe390aa0406f"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "662e70e1f51dfe390aa0406b"
+      }
+    }
+  ],
+  "target": 2,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662e737cf51dfe390aa0412e"
+  },
+  "testId": "test9",
+  "questions": [
+    {
+      "question": "Which international organization is primarily responsible for the maintenance of international peace and security?",
+      "correctOption": "D",
+      "options": [
+        {
+          "id": "A",
+          "text": "International Monetary Fund (IMF)",
+          "_id": {
+            "$oid": "662e737cf51dfe390aa04130"
+          }
+        },
+        {
+          "id": "B",
+          "text": "European Union (EU) ",
+          "_id": {
+            "$oid": "662e737cf51dfe390aa04131"
+          }
+        },
+        {
+          "id": "C",
+          "text": "World Trade Organization (WTO)",
+          "_id": {
+            "$oid": "662e737cf51dfe390aa04132"
+          }
+        },
+        {
+          "id": "D",
+          "text": "United Nations (UN)",
+          "_id": {
+            "$oid": "662e737cf51dfe390aa04133"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "662e737cf51dfe390aa0412f"
+      }
+    },
+    {
+      "question": "What is the main purpose of the Universal Declaration of Human Rights?",
+      "correctOption": "B",
+      "options": [
+        {
+          "id": "A",
+          "text": "To regulate international trade agreements",
+          "_id": {
+            "$oid": "662e737cf51dfe390aa04135"
+          }
+        },
+        {
+          "id": "B",
+          "text": "To protect the rights and freedoms of individuals worldwide",
+          "_id": {
+            "$oid": "662e737cf51dfe390aa04136"
+          }
+        },
+        {
+          "id": "C",
+          "text": "To promote democracy in developing countries",
+          "_id": {
+            "$oid": "662e737cf51dfe390aa04137"
+          }
+        },
+        {
+          "id": "D",
+          "text": "To establish a global currency",
+          "_id": {
+            "$oid": "662e737cf51dfe390aa04138"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "662e737cf51dfe390aa04134"
+      }
+    },
+    {
+      "question": "Which treaty serves as the foundation for international environmental law, aiming to combat climate change and promote sustainable development?",
+      "correctOption": "C",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vienna Convention for the Protection of the Ozone Layer",
+          "_id": {
+            "$oid": "662e737cf51dfe390aa0413a"
+          }
+        },
+        {
+          "id": "B",
+          "text": "Kyoto Protocol",
+          "_id": {
+            "$oid": "662e737cf51dfe390aa0413b"
+          }
+        },
+        {
+          "id": "C",
+          "text": "Paris Agreement",
+          "_id": {
+            "$oid": "662e737cf51dfe390aa0413c"
+          }
+        },
+        {
+          "id": "D",
+          "text": "Stockholm Convention on Persistent Organic Pollutants",
+          "_id": {
+            "$oid": "662e737cf51dfe390aa0413d"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "662e737cf51dfe390aa04139"
+      }
+    },
+    {
+      "question": "What is the primary function of the International Criminal Court (ICC)?",
+      "correctOption": "A",
+      "options": [
+        {
+          "id": "A",
+          "text": "To prosecute individuals for genocide, war crimes, and crimes against humanity",
+          "_id": {
+            "$oid": "662e737cf51dfe390aa0413f"
+          }
+        },
+        {
+          "id": "B",
+          "text": "To enforce international trade regulations",
+          "_id": {
+            "$oid": "662e737cf51dfe390aa04140"
+          }
+        },
+        {
+          "id": "C",
+          "text": "To arbitrate disputes between nations",
+          "_id": {
+            "$oid": "662e737cf51dfe390aa04141"
+          }
+        },
+        {
+          "id": "D",
+          "text": "To provide humanitarian aid in conflict zones",
+          "_id": {
+            "$oid": "662e737cf51dfe390aa04142"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "662e737cf51dfe390aa0413e"
+      }
+    },
+    {
+      "question": "Which principle of international law states that states should avoid using force in their international relations except in self-defense or with the authorization of the United Nations Security Council?",
+      "correctOption": "B",
+      "options": [
+        {
+          "id": "A",
+          "text": "Principle of sovereignty",
+          "_id": {
+            "$oid": "662e737cf51dfe390aa04144"
+          }
+        },
+        {
+          "id": "B",
+          "text": "Principle of jus ad bellum",
+          "_id": {
+            "$oid": "662e737cf51dfe390aa04145"
+          }
+        },
+        {
+          "id": "C",
+          "text": "Principle of collective security",
+          "_id": {
+            "$oid": "662e737cf51dfe390aa04146"
+          }
+        },
+        {
+          "id": "D",
+          "text": "Principle of non-intervention",
+          "_id": {
+            "$oid": "662e737cf51dfe390aa04147"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "662e737cf51dfe390aa04143"
+      }
+    }
+  ],
+  "target": 3,
+  "__v": 0
+}]

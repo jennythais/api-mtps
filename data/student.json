@@ -1,0 +1,308 @@
+[{
+  "_id": {
+    "$oid": "662a8350f476e9992e81bba3"
+  },
+  "id": "001001",
+  "name": "Jacob Garcia",
+  "email": "001001@gmail.com",
+  "password": "password1",
+  "activities": [
+    "ca0a7efd-57c0-47df-b4ae-2afdf1998039",
+    "7a57be7c-00d6-4cc7-be99-8dc7307e15b9",
+    "e0b2b323-66cc-4ab0-bd92-348964a0c80d",
+    "33d0542b-2de8-476b-a5df-4a4e863f9e59",
+    "959a2dd1-4b1a-448c-abe0-429778df08ad",
+    "b2817127-69d0-462f-a181-b561db5d134b",
+    "5e9c2899-198d-402e-8ba6-bb77cd3d43c4",
+    "826e511f-4299-4f90-a50c-b562fd29648e"
+  ],
+  "facultyName": "Economics",
+  "trainingPoint": 24,
+  "role": "student",
+  "position": "student",
+  "__v": 16
+},
+{
+  "_id": {
+    "$oid": "662a8350f476e9992e81bba4"
+  },
+  "id": "001002",
+  "name": "Magnolia Harris",
+  "email": "001002@gmail.com",
+  "password": "pass0202",
+  "activities": [
+    "e0b2b323-66cc-4ab0-bd92-348964a0c80d",
+    "7a57be7c-00d6-4cc7-be99-8dc7307e15b9",
+    "ca0a7efd-57c0-47df-b4ae-2afdf1998039",
+    "959a2dd1-4b1a-448c-abe0-429778df08ad"
+  ],
+  "facultyName": "Law",
+  "trainingPoint": 0,
+  "role": "student",
+  "position": "leader",
+  "__v": 11
+},
+{
+  "_id": {
+    "$oid": "662a8350f476e9992e81bba5"
+  },
+  "id": "002002",
+  "name": "Alexander White",
+  "email": "002002@gmail.com",
+  "password": "password2",
+  "activities": [
+    "7a57be7c-00d6-4cc7-be99-8dc7307e15b9"
+  ],
+  "facultyName": "Natural Sciences",
+  "trainingPoint": 0,
+  "role": "student",
+  "position": "student",
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "662a8350f476e9992e81bba6"
+  },
+  "id": "004001",
+  "name": "Daniel Brown",
+  "email": "004001@gmail.com",
+  "password": "password1",
+  "activities": [
+    "7a57be7c-00d6-4cc7-be99-8dc7307e15b9",
+    "959a2dd1-4b1a-448c-abe0-429778df08ad",
+    "ec4a3036-b8af-40b8-b603-009ce45f4641"
+  ],
+  "facultyName": "Foreign Languages",
+  "trainingPoint": 10,
+  "role": "student",
+  "position": "monitor",
+  "__v": 3
+},
+{
+  "_id": {
+    "$oid": "662a8350f476e9992e81bba7"
+  },
+  "id": "005001",
+  "name": "Benjamin White",
+  "email": "005001@gmail.com",
+  "password": "password1",
+  "activities": [],
+  "facultyName": "Business Administration",
+  "trainingPoint": 0,
+  "role": "student",
+  "position": "student"
+},
+{
+  "_id": {
+    "$oid": "662a8350f476e9992e81bba8"
+  },
+  "id": "006001",
+  "name": "Emily Johnson",
+  "email": "006001@gmail.com",
+  "password": "password1",
+  "activities": [],
+  "facultyName": "Economics",
+  "trainingPoint": 0,
+  "role": "student",
+  "position": "student"
+},
+{
+  "_id": {
+    "$oid": "662a8350f476e9992e81bba9"
+  },
+  "id": "008001",
+  "name": "Emma Brown",
+  "email": "008001@gmail.com",
+  "password": "password1",
+  "activities": [
+    "7a57be7c-00d6-4cc7-be99-8dc7307e15b9",
+    "ca0a7efd-57c0-47df-b4ae-2afdf1998039"
+  ],
+  "facultyName": "Engineering",
+  "trainingPoint": 0,
+  "role": "student",
+  "position": "student",
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "662a8350f476e9992e81bbaa"
+  },
+  "id": "009002",
+  "name": "Noah Martinez",
+  "email": "009002@gmail.com",
+  "password": "password2",
+  "activities": [],
+  "facultyName": "Electronics and Telecommunications",
+  "trainingPoint": 0,
+  "role": "student",
+  "position": "leader"
+},
+{
+  "_id": {
+    "$oid": "662a8350f476e9992e81bbab"
+  },
+  "id": "003002",
+  "name": "Michael Harris",
+  "email": "003002@gmail.com",
+  "password": "password2",
+  "activities": [],
+  "facultyName": "Medicine and Pharmacy",
+  "trainingPoint": 0,
+  "role": "student",
+  "position": "monitor"
+},
+{
+  "_id": {
+    "$oid": "662a8350f476e9992e81bbac"
+  },
+  "id": "004002",
+  "name": "Mia Robinson",
+  "email": "004002@gmail.com",
+  "password": "password2",
+  "activities": [],
+  "facultyName": "Electronics and Telecommunications",
+  "trainingPoint": 0,
+  "role": "student",
+  "position": "student"
+},
+{
+  "_id": {
+    "$oid": "662a8350f476e9992e81bbad"
+  },
+  "id": "005002",
+  "name": "Alexander Davis",
+  "email": "005002@gmail.com",
+  "password": "password2",
+  "activities": [],
+  "facultyName": "Mathematics and Computer Science",
+  "trainingPoint": 0,
+  "role": "student",
+  "position": "monitor"
+},
+{
+  "_id": {
+    "$oid": "662a8350f476e9992e81bbae"
+  },
+  "id": "008002",
+  "name": "Liam Garcia",
+  "email": "008002@gmail.com",
+  "password": "password2",
+  "activities": [],
+  "facultyName": "Medicine and Pharmacy",
+  "trainingPoint": 0,
+  "role": "student",
+  "position": "student"
+},
+{
+  "_id": {
+    "$oid": "662a8350f476e9992e81bbaf"
+  },
+  "id": "009001",
+  "name": "Sophia Hernandez",
+  "email": "009001@gmail.com",
+  "password": "password1",
+  "activities": [],
+  "facultyName": "Foreign Languages",
+  "trainingPoint": 0,
+  "role": "student",
+  "position": "leader"
+},
+{
+  "_id": {
+    "$oid": "662a8350f476e9992e81bbb0"
+  },
+  "id": "002001",
+  "name": "Alexander Anderson",
+  "email": "002001@gmail.com",
+  "password": "password1",
+  "activities": [],
+  "facultyName": "Social Sciences and Humanities",
+  "trainingPoint": 0,
+  "role": "student",
+  "position": "student"
+},
+{
+  "_id": {
+    "$oid": "662a8350f476e9992e81bbb1"
+  },
+  "id": "003001",
+  "name": "Magnolia Thompson",
+  "email": "003001@gmail.com",
+  "password": "password1",
+  "activities": [],
+  "facultyName": "Engineering",
+  "trainingPoint": 0,
+  "role": "student",
+  "position": "student"
+},
+{
+  "_id": {
+    "$oid": "662a8350f476e9992e81bbb2"
+  },
+  "id": "006002",
+  "name": "William Martin",
+  "email": "006002@gmail.com",
+  "password": "password2",
+  "activities": [],
+  "facultyName": "Law",
+  "trainingPoint": 0,
+  "role": "student",
+  "position": "leader"
+},
+{
+  "_id": {
+    "$oid": "662a8350f476e9992e81bbb3"
+  },
+  "id": "007001",
+  "name": "Olivia Wilson",
+  "email": "007001@gmail.com",
+  "password": "password1",
+  "activities": [],
+  "facultyName": "Social Sciences and Humanities",
+  "trainingPoint": 0,
+  "role": "student",
+  "position": "student"
+},
+{
+  "_id": {
+    "$oid": "662a8350f476e9992e81bbb4"
+  },
+  "id": "007002",
+  "name": "James Taylor",
+  "email": "007002@gmail.com",
+  "password": "password2",
+  "activities": [],
+  "facultyName": "Natural Sciences",
+  "trainingPoint": 0,
+  "role": "student",
+  "position": "student"
+},
+{
+  "_id": {
+    "$oid": "662a8350f476e9992e81bbb5"
+  },
+  "id": "010001",
+  "name": "Isabella Robinson",
+  "email": "010001@gmail.com",
+  "password": "password1",
+  "activities": [],
+  "facultyName": "Business Administration",
+  "trainingPoint": 0,
+  "role": "student",
+  "position": "leader"
+},
+{
+  "_id": {
+    "$oid": "662a8350f476e9992e81bbb6"
+  },
+  "id": "010002",
+  "name": "Ethan Thompson",
+  "email": "010002@gmail.com",
+  "password": "password2",
+  "activities": [],
+  "facultyName": "Mathematics and Computer Science",
+  "trainingPoint": 0,
+  "role": "student",
+  "position": "monitor"
+}]

@@ -1,0 +1,484 @@
+[{
+  "_id": {
+    "$oid": "662d026d03337668add9d75f"
+  },
+  "studentId": "001001",
+  "academic": [
+    "ca0a7efd-57c0-47df-b4ae-2afdf1998039",
+    "826e511f-4299-4f90-a50c-b562fd29648e"
+  ],
+  "volunteer": [
+    "7a57be7c-00d6-4cc7-be99-8dc7307e15b9",
+    "33d0542b-2de8-476b-a5df-4a4e863f9e59",
+    "959a2dd1-4b1a-448c-abe0-429778df08ad",
+    "5e9c2899-198d-402e-8ba6-bb77cd3d43c4"
+  ],
+  "mentalPhysical": [
+    "e0b2b323-66cc-4ab0-bd92-348964a0c80d",
+    "b2817127-69d0-462f-a181-b561db5d134b"
+  ],
+  "discipline": [
+    {
+      "name": "Không vi phạm",
+      "point": 20
+    },
+    {
+      "name": "No student card",
+      "point": -3,
+      "_id": {
+        "$oid": "662d35d47f402b48d019b5ed"
+      }
+    }
+  ],
+  "reward": [
+    {
+      "name": "Tham gia tren 7 hoat dong",
+      "point": 3,
+      "_id": {
+        "$oid": "662dfc24a389494db0a89377"
+      }
+    }
+  ],
+  "pioneering": [],
+  "__v": 13
+},
+{
+  "_id": {
+    "$oid": "662d026d03337668add9d760"
+  },
+  "studentId": "001002",
+  "academic": [
+    "ca0a7efd-57c0-47df-b4ae-2afdf1998039"
+  ],
+  "volunteer": [
+    "7a57be7c-00d6-4cc7-be99-8dc7307e15b9",
+    "959a2dd1-4b1a-448c-abe0-429778df08ad"
+  ],
+  "mentalPhysical": [
+    "e0b2b323-66cc-4ab0-bd92-348964a0c80d"
+  ],
+  "discipline": [
+    {
+      "name": "Không vi phạm",
+      "point": 20
+    }
+  ],
+  "reward": [],
+  "pioneering": [
+    {
+      "name": "leader",
+      "point": 10,
+      "_id": {
+        "$oid": "662d02885fcb2aa0a1f0b40d"
+      }
+    }
+  ],
+  "__v": 7
+},
+{
+  "_id": {
+    "$oid": "662d026d03337668add9d761"
+  },
+  "studentId": "002002",
+  "academic": [],
+  "volunteer": [
+    "7a57be7c-00d6-4cc7-be99-8dc7307e15b9"
+  ],
+  "mentalPhysical": [],
+  "discipline": [
+    {
+      "name": "Không vi phạm",
+      "point": 20
+    }
+  ],
+  "reward": [],
+  "pioneering": [],
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "662d026d03337668add9d762"
+  },
+  "studentId": "004001",
+  "academic": [
+    "ec4a3036-b8af-40b8-b603-009ce45f4641"
+  ],
+  "volunteer": [
+    "7a57be7c-00d6-4cc7-be99-8dc7307e15b9",
+    "959a2dd1-4b1a-448c-abe0-429778df08ad"
+  ],
+  "mentalPhysical": [],
+  "discipline": [
+    {
+      "name": "Không vi phạm",
+      "point": 20
+    }
+  ],
+  "reward": [],
+  "pioneering": [
+    {
+      "name": "monitor",
+      "point": 20,
+      "_id": {
+        "$oid": "662d02885fcb2aa0a1f0b413"
+      }
+    }
+  ],
+  "__v": 6
+},
+{
+  "_id": {
+    "$oid": "662d026d03337668add9d763"
+  },
+  "studentId": "005001",
+  "academic": [],
+  "volunteer": [],
+  "mentalPhysical": [],
+  "discipline": [
+    {
+      "name": "Không vi phạm",
+      "point": 20
+    }
+  ],
+  "reward": [],
+  "pioneering": [
+    {
+      "name": "Student",
+      "point": 5,
+      "_id": {
+        "$oid": "662dc060807e259c90c20b33"
+      }
+    }
+  ],
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "662d026d03337668add9d764"
+  },
+  "studentId": "006001",
+  "academic": [],
+  "volunteer": [],
+  "mentalPhysical": [],
+  "discipline": [
+    {
+      "name": "Không vi phạm",
+      "point": 20
+    }
+  ],
+  "reward": [],
+  "pioneering": [],
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "662d026d03337668add9d765"
+  },
+  "studentId": "008001",
+  "academic": [
+    "ca0a7efd-57c0-47df-b4ae-2afdf1998039"
+  ],
+  "volunteer": [
+    "7a57be7c-00d6-4cc7-be99-8dc7307e15b9"
+  ],
+  "mentalPhysical": [],
+  "discipline": [
+    {
+      "name": "Không vi phạm",
+      "point": 20
+    }
+  ],
+  "reward": [],
+  "pioneering": [],
+  "__v": 3
+},
+{
+  "_id": {
+    "$oid": "662d026d03337668add9d766"
+  },
+  "studentId": "009002",
+  "academic": [],
+  "volunteer": [],
+  "mentalPhysical": [],
+  "discipline": [
+    {
+      "name": "Không vi phạm",
+      "point": 20
+    }
+  ],
+  "reward": [],
+  "pioneering": [
+    {
+      "name": "leader",
+      "point": 10,
+      "_id": {
+        "$oid": "662d02885fcb2aa0a1f0b410"
+      }
+    }
+  ],
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "662d026d03337668add9d767"
+  },
+  "studentId": "003002",
+  "academic": [],
+  "volunteer": [],
+  "mentalPhysical": [],
+  "discipline": [
+    {
+      "name": "Không vi phạm",
+      "point": 20
+    }
+  ],
+  "reward": [],
+  "pioneering": [
+    {
+      "name": "monitor",
+      "point": 20,
+      "_id": {
+        "$oid": "662d02885fcb2aa0a1f0b416"
+      }
+    }
+  ],
+  "__v": 3
+},
+{
+  "_id": {
+    "$oid": "662d026d03337668add9d768"
+  },
+  "studentId": "004002",
+  "academic": [],
+  "volunteer": [],
+  "mentalPhysical": [],
+  "discipline": [
+    {
+      "name": "Không vi phạm",
+      "point": 20
+    }
+  ],
+  "reward": [],
+  "pioneering": [],
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "662d026d03337668add9d769"
+  },
+  "studentId": "005002",
+  "academic": [],
+  "volunteer": [],
+  "mentalPhysical": [],
+  "discipline": [
+    {
+      "name": "Không vi phạm",
+      "point": 20
+    }
+  ],
+  "reward": [],
+  "pioneering": [
+    {
+      "name": "monitor",
+      "point": 20,
+      "_id": {
+        "$oid": "662d02895fcb2aa0a1f0b422"
+      }
+    }
+  ],
+  "__v": 3
+},
+{
+  "_id": {
+    "$oid": "662d026d03337668add9d76a"
+  },
+  "studentId": "008002",
+  "academic": [],
+  "volunteer": [],
+  "mentalPhysical": [],
+  "discipline": [
+    {
+      "name": "Không vi phạm",
+      "point": 20
+    }
+  ],
+  "reward": [],
+  "pioneering": [],
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "662d026d03337668add9d76b"
+  },
+  "studentId": "009001",
+  "academic": [],
+  "volunteer": [],
+  "mentalPhysical": [],
+  "discipline": [
+    {
+      "name": "Không vi phạm",
+      "point": 20
+    }
+  ],
+  "reward": [],
+  "pioneering": [
+    {
+      "name": "leader",
+      "point": 10,
+      "_id": {
+        "$oid": "662d02895fcb2aa0a1f0b41f"
+      }
+    }
+  ],
+  "__v": 3
+},
+{
+  "_id": {
+    "$oid": "662d026d03337668add9d76c"
+  },
+  "studentId": "002001",
+  "academic": [],
+  "volunteer": [],
+  "mentalPhysical": [],
+  "discipline": [
+    {
+      "name": "Không vi phạm",
+      "point": 20
+    }
+  ],
+  "reward": [],
+  "pioneering": [],
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "662d026d03337668add9d76d"
+  },
+  "studentId": "003001",
+  "academic": [],
+  "volunteer": [],
+  "mentalPhysical": [],
+  "discipline": [
+    {
+      "name": "Không vi phạm",
+      "point": 20
+    }
+  ],
+  "reward": [],
+  "pioneering": [],
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "662d026d03337668add9d76e"
+  },
+  "studentId": "006002",
+  "academic": [],
+  "volunteer": [],
+  "mentalPhysical": [],
+  "discipline": [
+    {
+      "name": "Không vi phạm",
+      "point": 20
+    }
+  ],
+  "reward": [],
+  "pioneering": [
+    {
+      "name": "leader",
+      "point": 10,
+      "_id": {
+        "$oid": "662d02885fcb2aa0a1f0b40a"
+      }
+    }
+  ],
+  "__v": 3
+},
+{
+  "_id": {
+    "$oid": "662d026d03337668add9d76f"
+  },
+  "studentId": "007001",
+  "academic": [],
+  "volunteer": [],
+  "mentalPhysical": [],
+  "discipline": [
+    {
+      "name": "Không vi phạm",
+      "point": 20
+    }
+  ],
+  "reward": [],
+  "pioneering": [],
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "662d026d03337668add9d770"
+  },
+  "studentId": "007002",
+  "academic": [],
+  "volunteer": [],
+  "mentalPhysical": [],
+  "discipline": [
+    {
+      "name": "Không vi phạm",
+      "point": 20
+    }
+  ],
+  "reward": [],
+  "pioneering": [],
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "662d026d03337668add9d771"
+  },
+  "studentId": "010001",
+  "academic": [],
+  "volunteer": [],
+  "mentalPhysical": [],
+  "discipline": [
+    {
+      "name": "Không vi phạm",
+      "point": 20
+    }
+  ],
+  "reward": [],
+  "pioneering": [
+    {
+      "name": "leader",
+      "point": 10,
+      "_id": {
+        "$oid": "662d02895fcb2aa0a1f0b41c"
+      }
+    }
+  ],
+  "__v": 3
+},
+{
+  "_id": {
+    "$oid": "662d026d03337668add9d772"
+  },
+  "studentId": "010002",
+  "academic": [],
+  "volunteer": [],
+  "mentalPhysical": [],
+  "discipline": [
+    {
+      "name": "Không vi phạm",
+      "point": 20
+    }
+  ],
+  "reward": [],
+  "pioneering": [
+    {
+      "name": "monitor",
+      "point": 20,
+      "_id": {
+        "$oid": "662d02895fcb2aa0a1f0b419"
+      }
+    }
+  ],
+  "__v": 3
+}]

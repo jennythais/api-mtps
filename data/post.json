@@ -1,0 +1,373 @@
+[{
+  "_id": {
+    "$oid": "662d086f5fcb2aa0a1f0b5da"
+  },
+  "id": "7a57be7c-00d6-4cc7-be99-8dc7307e15b9",
+  "name": "Global Economic Trends Summit",
+  "desc": "Explore emerging economic trends shaping the world economy.",
+  "status": true,
+  "startTime": "02:00",
+  "startDate": "2024-04-27",
+  "endTime": "16:00",
+  "endDate": "2024-04-30",
+  "point": 5,
+  "location": "Conference Center _ 29/04/2024 _ 09h - 17h",
+  "numberParticipants": 97,
+  "facultyName": "Economics",
+  "category": "volunteer",
+  "stdJoin": [
+    "001001",
+    "001002",
+    "004001"
+  ],
+  "testId": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662d0aea46f2b037153cbcf2"
+  },
+  "id": "e0b2b323-66cc-4ab0-bd92-348964a0c80d",
+  "name": "Practical Applications of Microeconomics",
+  "desc": "Explore real-world examples of microeconomic principles.",
+  "status": true,
+  "startTime": "10:00",
+  "startDate": "2024-04-25",
+  "endTime": "22:00",
+  "endDate": "2024-05-06",
+  "point": 5,
+  "location": "online",
+  "numberParticipants": 97,
+  "facultyName": "Economics",
+  "category": "mentalPhysical",
+  "stdJoin": [
+    "001001",
+    "001002"
+  ],
+  "testId": "test1",
+  "__v": 3
+},
+{
+  "_id": {
+    "$oid": "662d0e1eaba4698635059ffd"
+  },
+  "id": "5e9c2899-198d-402e-8ba6-bb77cd3d43c4",
+  "name": "Future of Global Trade Policies",
+  "desc": "Discuss the potential impact of evolving trade policies.",
+  "status": true,
+  "startTime": "15:30",
+  "startDate": "2024-04-30",
+  "endTime": "17:40",
+  "endDate": "2024-05-10",
+  "point": 3,
+  "location": "online",
+  "numberParticipants": 99,
+  "facultyName": "Economics",
+  "category": "volunteer",
+  "stdJoin": [
+    "001001"
+  ],
+  "testId": "test2",
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "662d2535aba469863505a6e8"
+  },
+  "id": "959a2dd1-4b1a-448c-abe0-429778df08ad",
+  "name": "Spanish Language Workshop",
+  "desc": "Learn basic Spanish vocabulary and grammar.",
+  "status": true,
+  "startTime": "13:30",
+  "startDate": "2024-05-01",
+  "endTime": "11:16",
+  "endDate": "2024-05-15",
+  "point": 5,
+  "location": "Room C302 _ 16/05/2024 _ 13h - 15h",
+  "numberParticipants": 98,
+  "facultyName": "Foreign Languages",
+  "category": "volunteer",
+  "stdJoin": [
+    "001001",
+    "004001"
+  ],
+  "testId": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662d2627aba469863505a75c"
+  },
+  "id": "826e511f-4299-4f90-a50c-b562fd29648e",
+  "name": "French-Spanish Language Exchange",
+  "desc": "Practice speaking French and Spanish with native speakers.",
+  "status": true,
+  "startTime": "01:00",
+  "startDate": "2024-04-28",
+  "endTime": "13:00",
+  "endDate": "2024-05-04",
+  "point": 3,
+  "location": "online",
+  "numberParticipants": 99,
+  "facultyName": "Foreign Languages",
+  "category": "academic",
+  "stdJoin": [
+    "001001"
+  ],
+  "testId": "test3",
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "662d26faaba469863505a7af"
+  },
+  "id": "30dfab38-06d5-4943-ade7-d7a543cbeba1",
+  "name": "German Language Seminar",
+  "desc": "Explore advanced German grammar and conversational skills.",
+  "status": true,
+  "startTime": "05:00",
+  "startDate": "2024-05-08",
+  "endTime": "17:00",
+  "endDate": "2024-05-15",
+  "point": 5,
+  "location": "Hall E _ 20/05/2024 _ 08h - 10h",
+  "numberParticipants": 28,
+  "facultyName": "Foreign Languages",
+  "category": "mentalPhysical",
+  "stdJoin": [],
+  "testId": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662d28d9aba469863505a823"
+  },
+  "id": "a58c85d3-b2dc-4835-a569-9fa0d70a97b7",
+  "name": "Language Club Meeting",
+  "desc": "Discuss culture and practice language skills.",
+  "status": false,
+  "startTime": "13:40",
+  "startDate": "2024-04-26",
+  "endTime": "17:40",
+  "endDate": "2024-04-30",
+  "point": 3,
+  "location": "online",
+  "numberParticipants": 500,
+  "facultyName": "Foreign Languages",
+  "category": "volunteer",
+  "stdJoin": [],
+  "testId": "test4",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662d2949aba469863505a876"
+  },
+  "id": "84bf9bc4-35a4-40fd-b7d5-bcc6f20de405",
+  "name": "Mandarin Chinese Calligraphy Workshop",
+  "desc": "Learn the art of Mandarin Chinese calligraphy.",
+  "status": true,
+  "startTime": "23:40",
+  "startDate": "2024-04-30",
+  "endTime": "20:40",
+  "endDate": "2024-05-10",
+  "point": 10,
+  "location": "Hall E _ 11/05/2024 _ 08h - 10h",
+  "numberParticipants": 50,
+  "facultyName": "Foreign Languages",
+  "category": "mentalPhysical",
+  "stdJoin": [],
+  "testId": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662d40747a0614aa4fc74d5a"
+  },
+  "id": "5c7461a3-ca22-4bbe-a2c6-7b3787ed68a8",
+  "name": "Workshop on Environmental Conservation",
+  "desc": "Learn about various strategies for environmental conservation and sustainable practices to protect natural ecosystems.",
+  "status": true,
+  "startTime": "02:00",
+  "startDate": "2024-05-10",
+  "endTime": "15:00",
+  "endDate": "2024-05-18",
+  "point": 5,
+  "location": "Green Hall _ 20/05/2024 _ 09:00 - 15:00",
+  "numberParticipants": 200,
+  "facultyName": "Natural Sciences",
+  "category": "academic",
+  "stdJoin": [],
+  "testId": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662d41227a0614aa4fc74dad"
+  },
+  "id": "d62ada46-b692-4bdf-9abf-507a45ba49c4",
+  "name": "Field Trip: Geological Exploration",
+  "desc": "Join us on an exciting field trip to explore geological formations and learn about the Earth's natural history.",
+  "status": false,
+  "startTime": "06:00",
+  "startDate": "2024-05-20",
+  "endTime": "20:00",
+  "endDate": "2024-05-30",
+  "point": 8,
+  "location": "Outdoor _ 01/06/2024 _ 10:00 - 17:00",
+  "numberParticipants": 50,
+  "facultyName": "Natural Sciences",
+  "category": "volunteer",
+  "stdJoin": [],
+  "testId": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662d422b7a0614aa4fc74e17"
+  },
+  "id": "14cd78f9-79a5-48d7-99c4-3f20ecd72b5e",
+  "name": "Botany Workshop: Plant Identification",
+  "desc": "Join our workshop to learn about plant identification techniques, including leaf morphology, flower structure, and plant families.",
+  "status": true,
+  "startTime": "15:30",
+  "startDate": "2024-05-01",
+  "endTime": "05:00",
+  "endDate": "2024-05-13",
+  "point": 5,
+  "location": "online",
+  "numberParticipants": 30,
+  "facultyName": "Natural Sciences",
+  "category": "mentalPhysical",
+  "stdJoin": [],
+  "testId": "test6",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662d443c7a0614aa4fc74edc"
+  },
+  "id": "e609cb01-9ec6-48ad-b024-0e0c21dacceb",
+  "name": "Geography Excursion: Natural Disasters",
+  "desc": "Explore the impact of natural disasters on the environment and communities. Learn about earthquake, tsunami, and volcanic eruption preparedness and mitigation.",
+  "status": false,
+  "startTime": "03:30",
+  "startDate": "2024-05-05",
+  "endTime": "15:30",
+  "endDate": "2024-05-15",
+  "point": 5,
+  "location": "online",
+  "numberParticipants": "70",
+  "facultyName": "Natural Sciences",
+  "category": "mentalPhysical",
+  "stdJoin": [],
+  "testId": "test7",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662e6ebdf51dfe390aa03f93"
+  },
+  "id": "ec4a3036-b8af-40b8-b603-009ce45f4641",
+  "name": "Legal Seminar: Introduction to Criminal Law",
+  "desc": "Explore the fundamental principles of criminal law, including elements of crimes, legal defenses, and criminal procedures.",
+  "status": true,
+  "startTime": "20:00",
+  "startDate": "2024-04-28",
+  "endTime": "09:00",
+  "endDate": "2024-05-05",
+  "point": 8,
+  "location": "Law School Auditorium _ 06/05/2024 _ 09:00 - 16:00",
+  "numberParticipants": 43,
+  "facultyName": "Law",
+  "category": "academic",
+  "stdJoin": [
+    "004001"
+  ],
+  "testId": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662e6f17f51dfe390aa03fe8"
+  },
+  "id": "9f524af3-bcef-41ed-a0bd-a9da81409a11",
+  "name": "Legal Workshop: Intellectual Property Rights",
+  "desc": "Learn about intellectual property laws, including patents, trademarks, and copyrights, and their importance in protecting innovation and creativity.",
+  "status": true,
+  "startTime": "15:00",
+  "startDate": "2024-05-10",
+  "endTime": "03:00",
+  "endDate": "2024-05-15",
+  "point": 3,
+  "location": "Conference Room A _ 16/10/2024 _ 10:00 - 14:00",
+  "numberParticipants": 200,
+  "facultyName": "Law",
+  "category": "volunteer",
+  "stdJoin": [],
+  "testId": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662e6f8ef51dfe390aa03fec"
+  },
+  "id": "c9faf716-cbc6-4e4f-a541-fcc8e877d53d",
+  "name": "Legal Conference: Environmental Law and Policy",
+  "desc": "Discuss the role of environmental law in addressing pressing environmental issues, such as climate change, pollution, and conservation.",
+  "status": false,
+  "startTime": "12:00",
+  "startDate": "2024-05-20",
+  "endTime": "01:00",
+  "endDate": "2024-05-30",
+  "point": 10,
+  "location": "Environmental Law Center _ 31/05/2024 _ 08:30 - 17:00",
+  "numberParticipants": "50",
+  "facultyName": "Law",
+  "category": "mentalPhysical",
+  "stdJoin": [],
+  "testId": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662e7127f51dfe390aa04071"
+  },
+  "id": "6c276399-c12b-44ef-b376-f6be10f47254",
+  "name": "Legal Panel Discussion: Human Rights in the Digital Age",
+  "desc": "Explore the intersection of human rights and technology, focusing on privacy rights, online freedom of expression, and digital surveillance.",
+  "status": true,
+  "startTime": "08:05",
+  "startDate": "2024-05-07",
+  "endTime": "21:05",
+  "endDate": "2024-05-21",
+  "point": 5,
+  "location": "online",
+  "numberParticipants": 300,
+  "facultyName": "Law",
+  "category": "mentalPhysical",
+  "stdJoin": [],
+  "testId": "test8",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662e73d5f51dfe390aa0419a"
+  },
+  "id": "54293f54-f74f-471d-9baa-829a3f6fce87",
+  "name": "Legal Symposium: International Law and Global Governance",
+  "desc": "Examine the role of international law in addressing global challenges, such as conflict resolution, human rights protection, and sustainable development.",
+  "status": false,
+  "startTime": "00:05",
+  "startDate": "2024-05-01",
+  "endTime": "12:05",
+  "endDate": "2024-05-10",
+  "point": 8,
+  "location": "International Conference Center _ 11/05/2024 _ 09:30 - 14:30",
+  "numberParticipants": 80,
+  "facultyName": "Law",
+  "category": "volunteer",
+  "stdJoin": [],
+  "testId": "test9",
+  "__v": 0
+}]

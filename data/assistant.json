@@ -1,0 +1,110 @@
+[{
+  "_id": {
+    "$oid": "660461f50738db7c78936bb0"
+  },
+  "id": "AS010",
+  "name": "Alexander",
+  "email": "assistantmathematicsandcomputerscience@gmail.com",
+  "password": "abc@123",
+  "role": "assistant",
+  "facultyName": "Mathematics and Computer Science"
+},
+{
+  "_id": {
+    "$oid": "660461f50738db7c78936bae"
+  },
+  "id": "AS008",
+  "name": "James",
+  "email": "assistantelectronicsandtelecommunications@gmail.com",
+  "password": "securepassword",
+  "role": "assistant",
+  "facultyName": "Electronics and Telecommunications"
+},
+{
+  "_id": {
+    "$oid": "660461f50738db7c78936baa"
+  },
+  "id": "AS004",
+  "name": "Michael",
+  "email": "assistantnaturalsciences@gmail.com",
+  "password": "securepassword",
+  "role": "assistant",
+  "facultyName": "Natural Sciences"
+},
+{
+  "_id": {
+    "$oid": "660461f50738db7c78936ba7"
+  },
+  "id": "AS001",
+  "name": "John",
+  "email": "assistanteconomics@gmail.com",
+  "password": "password123",
+  "role": "assistant",
+  "facultyName": "Economics"
+},
+{
+  "_id": {
+    "$oid": "660461f50738db7c78936bab"
+  },
+  "id": "AS005",
+  "name": "Olivia",
+  "email": "assistantengineering@gmail.com",
+  "password": "password123",
+  "role": "assistant",
+  "facultyName": "Engineering"
+},
+{
+  "_id": {
+    "$oid": "660461f50738db7c78936bad"
+  },
+  "id": "AS007",
+  "name": "Sophia",
+  "email": "assistantforeignlanguages@gmail.com",
+  "password": "securepassword",
+  "role": "assistant",
+  "facultyName": "Foreign Languages"
+},
+{
+  "_id": {
+    "$oid": "660461f50738db7c78936ba8"
+  },
+  "id": "AS002",
+  "name": "Alice",
+  "email": "assistantlaw@gmail.com",
+  "password": "abc@123",
+  "role": "assistant",
+  "facultyName": "Law"
+},
+{
+  "_id": {
+    "$oid": "660461f50738db7c78936ba9"
+  },
+  "id": "AS003",
+  "name": "Emma",
+  "email": "assistantsocialsciencesandhumanities@gmail.com",
+  "password": "securepassword",
+  "role": "assistant",
+  "facultyName": "Social Sciences and Humanities"
+},
+{
+  "_id": {
+    "$oid": "660461f50738db7c78936bac"
+  },
+  "id": "AS006",
+  "name": "William",
+  "email": "assistantmedicineandpharmacy@gmail.com",
+  "password": "abc@123",
+  "role": "assistant",
+  "facultyName": "Medicine and Pharmacy"
+},
+{
+  "_id": {
+    "$oid": "660461f50738db7c78936baf"
+  },
+  "id": "AS009",
+  "name": "Emily",
+  "email": "assistantbusinessadministration@gmail.com",
+  "password": "password123",
+  "role": "assistant",
+  "facultyName": "Business Administration"
+}]

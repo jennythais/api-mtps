@@ -1,0 +1,202 @@
+[{
+  "_id": {
+    "$oid": "662d116baba469863505a136"
+  },
+  "postFields": {
+    "id": "44c89c28-0ec6-4fbd-924c-8599db726ef8",
+    "name": "Environmental Conservation Campaign",
+    "desc": "Join efforts to preserve natural habitats and wildlife.",
+    "status": false,
+    "startTime": "15:00",
+    "startDate": "2023-03-05",
+    "endTime": "15:00",
+    "endDate": "2023-03-17",
+    "point": 5,
+    "location": "National Park _ 20/04/2024 _ 08h - 16h",
+    "numberParticipants": 319,
+    "facultyName": "Economics",
+    "stdJoin": [],
+    "testId": null,
+    "_id": {
+      "$oid": "662d116baba469863505a132"
+    }
+  },
+  "expiredAt": {
+    "$date": "2023-03-17T08:00:00.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662d11f7aba469863505a18e"
+  },
+  "postFields": {
+    "id": "2c7d04ba-c1a0-4256-9681-330f2b6e14b8",
+    "name": "Quantitative Methods Bootcamp",
+    "desc": "Learn essential statistical techniques for economic analysis.",
+    "status": false,
+    "startTime": "00:00",
+    "startDate": "2023-12-10",
+    "endTime": "11:59",
+    "endDate": "2023-12-20",
+    "point": 3,
+    "location": "Hall A _ 21/12/2023 _ 10h - 12h",
+    "numberParticipants": 50,
+    "facultyName": "Economics",
+    "stdJoin": [],
+    "testId": null,
+    "_id": {
+      "$oid": "662d11f7aba469863505a18a"
+    }
+  },
+  "expiredAt": {
+    "$date": "2023-12-20T04:59:00.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662d2a73aba469863505a8e9"
+  },
+  "postFields": {
+    "id": "9b7525a7-3af7-4d5e-9f92-8ed64385c023",
+    "name": "Japanese Language Workshop",
+    "desc": "Introduction to Japanese language and culture.",
+    "status": true,
+    "startTime": "08:00",
+    "startDate": "2024-05-08",
+    "endTime": "23:59",
+    "endDate": "2024-04-22",
+    "point": 8,
+    "location": "online",
+    "numberParticipants": 600,
+    "facultyName": "Foreign Languages",
+    "stdJoin": [],
+    "testId": "test5",
+    "_id": {
+      "$oid": "662d2a73aba469863505a8e5"
+    }
+  },
+  "expiredAt": {
+    "$date": "2024-04-22T16:59:00.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662d3d207a0614aa4fc74c10"
+  },
+  "postFields": {
+    "id": "76610c96-e8c8-4200-9f66-d5cf2aacc2ff",
+    "name": "Introduction to Behavioral Economics",
+    "desc": "Learn about the intersection of psychology and economics.",
+    "status": true,
+    "startTime": "01:00",
+    "startDate": "2024-04-22",
+    "endTime": "01:00",
+    "endDate": "2024-04-28",
+    "point": 8,
+    "location": "Hall A _ 05/05/2024 _ 13h - 15h",
+    "numberParticipants": 250,
+    "facultyName": "Economics",
+    "stdJoin": [],
+    "testId": null,
+    "_id": {
+      "$oid": "662d093d5fcb2aa0a1f0b5df"
+    }
+  },
+  "expiredAt": {
+    "$date": "2024-04-27T18:00:00.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662d97d00230b31dd019bb64"
+  },
+  "postFields": {
+    "id": "33d0542b-2de8-476b-a5df-4a4e863f9e59",
+    "name": "International Finance Summit",
+    "desc": "Explore global financial trends and investment strategies.",
+    "status": true,
+    "startTime": "14:00",
+    "startDate": "2024-04-25",
+    "endTime": "02:00",
+    "endDate": "2024-04-28",
+    "point": 5,
+    "location": "Conference Center _ 30/04/2024 _ 09h - 18h",
+    "numberParticipants": 199,
+    "facultyName": "Economics",
+    "stdJoin": [
+      "001001"
+    ],
+    "testId": null,
+    "_id": {
+      "$oid": "662d3d207a0614aa4fc74c0b"
+    }
+  },
+  "expiredAt": {
+    "$date": "2024-04-27T19:00:00.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662e042111e868aeda4d8c7b"
+  },
+  "postFields": {
+    "id": "b2817127-69d0-462f-a181-b561db5d134b",
+    "name": "Lý Mạnh Phi",
+    "desc": "lkhoihiohilui",
+    "status": true,
+    "startTime": "14:06",
+    "startDate": "2024-04-28",
+    "endTime": "15:06",
+    "endDate": "2024-04-28",
+    "point": 5,
+    "location": "nha",
+    "numberParticipants": 2,
+    "facultyName": "Economics",
+    "stdJoin": [
+      "001001"
+    ],
+    "testId": null,
+    "_id": {
+      "$oid": "662df58bc3de755ba608dbb4"
+    }
+  },
+  "expiredAt": {
+    "$date": "2024-04-28T08:06:00.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6630609064057733fde53af4"
+  },
+  "postFields": {
+    "id": "ca0a7efd-57c0-47df-b4ae-2afdf1998039",
+    "name": "Workshop on Economics",
+    "desc": "Introduction to economic principles and theories",
+    "status": false,
+    "startTime": "08:00",
+    "startDate": "2024-04-24",
+    "endTime": "20:00",
+    "endDate": "2024-04-29",
+    "point": 3,
+    "location": "Hall D _ 30/04/2024 _ 14h - 16h",
+    "numberParticipants": 98,
+    "facultyName": "Economics",
+    "stdJoin": [
+      "001001"
+    ],
+    "testId": null,
+    "_id": {
+      "$oid": "662d06395fcb2aa0a1f0b539"
+    }
+  },
+  "expiredAt": {
+    "$date": "2024-04-29T13:00:00.000Z"
+  },
+  "__v": 0
+}]
