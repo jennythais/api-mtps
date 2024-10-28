@@ -9,52 +9,54 @@ const Attendees = require("../Models/attendees");
  * @swagger
  * tags:
  *  - name: Tests
- *    description: All about Test 
- * /api/tests:
- *   get: 
- *     summary: Get all tests
- *     description: Get all tests from the database
- *     tags: 
+ *    description: All about Tests
+ * /api/tests/{testId}:
+ *   get:
+ *     summary: Get a specific test
+ *     description: Retrieve a test by its ID from the database
+ *     tags:
  *       - Tests
+ *     parameters:
+ *       - name: testId
+ *         in: path
+ *         required: true
+ *         description: ID of the test to retrieve
+ *         schema:
+ *           type: string
  *     responses:
  *        200:
- *          description: Get all tests successfully
- *          content: 
+ *          description: Get the test successfully
+ *          content:
  *            application/json:
  *              schema:
  *                type: object
  *                properties:
- *                  tests:
+ *                  testId:
+ *                    type: string
+ *                  questions:
  *                    type: array
  *                    items:
  *                      type: object
  *                      properties:
- *                        testId:
+ *                        question:
  *                          type: string
- *                        questions:   
+ *                        correctOption:
+ *                          type: string
+ *                        options:
  *                          type: array
  *                          items:
  *                            type: object
  *                            properties:
- *                              question: 
+ *                              id:
  *                                type: string
- *                              correctOption:
+ *                              text:
  *                                type: string
- *                              options:
- *                                type: array
- *                                items:  
- *                                  type: object
- *                                  properties:  
- *                                    id:
- *                                      type: string
- *                                    text:
- *                                      type: string
- *                        target:
- *                          type: number
- *     404:
- *      description: Test not found
- *     500:
- *      description: Internal server error     
+ *                  target:
+ *                    type: number
+ *        404:
+ *          description: Test not found
+ *        500:
+ *          description: Internal server error
  */
 const getTest = async (req, res) => {
   const { testId } = req.query;
@@ -313,11 +315,9 @@ const doTest = async (req, res) => {
 
       await catePoint.save();
 
-      return res
-        .status(200)
-        .json({
-          message: "Create new student training point table successfully !",
-        });
+      return res.status(200).json({
+        message: "Create new student training point table successfully !",
+      });
     }
 
     // Proceed with the test evaluation logic as before
