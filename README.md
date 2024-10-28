@@ -2,7 +2,7 @@ To set up the project, follow these steps:
 
 1. Connect mongo database with the connection string below:
      ```
-     mongodb+srv://Allie:allie4926@cluster0.x0dwxnq.mongodb.net/
+     mongodb+srv://ruri:ruri2024@soa.ce1a0qo.mongodb.net/SOA_FINAL
      ```
 
 2. Initialize the project by running the following command:

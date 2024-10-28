@@ -25,7 +25,7 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: `http://localhost:${process.env.PORT || 1212}`,
+        url: `https://api-mtps.onrender.com`,
       },
     ],
   },
