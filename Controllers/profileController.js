@@ -5,49 +5,7 @@ const Point = require("../Models/pointCategory");
 const PointCategory = require("../Models/pointCategory");
 const cron = require("node-cron");
 
-const getProfile = async (req, res) => {
-  try {
-    const emailToCheck = req.account.emailInput;
-    const passToCheck = req.account.passwordInput;
 
-    const assistanUser = await Assistant.findOne({
-      email: emailToCheck,
-      password: passToCheck,
-    });
-    if (assistanUser) {
-      const userProfile = {
-        id: assistanUser.id,
-        name: assistanUser.name,
-        email: assistanUser.email,
-        role: assistanUser.role,
-        facultyName: assistanUser.facultyName,
-      };
-      return res.json(userProfile);
-    }
-
-    const studentUser = await Student.findOne({
-      email: emailToCheck,
-      password: passToCheck,
-    });
-    if (studentUser) {
-      const userProfile = {
-        id: studentUser.id,
-        name: studentUser.name,
-        email: studentUser.email,
-        facultyName: studentUser.facultyName,
-        trainingPoint: studentUser.trainingPoint,
-        activities: studentUser.activities,
-        role: studentUser.role,
-      };
-      return res.json(userProfile);
-    }
-
-    res.status(404).json({ message: "User not found" });
-  } catch (error) {
-    console.error("Error while fetching user profile:", error);
-    return res.status(500).json({ message: "Internal Server Error" });
-  }
-};
 
 /**
  * @swagger
@@ -125,7 +83,7 @@ const getPoint = async (req, res) => {
  *   - name: Profile
  *     description: Profile management
  * /api/change-password:
- *   post:
+ *   put:
  *     summary: Change user password
  *     description: Allows a user to change their password
  *     tags:
