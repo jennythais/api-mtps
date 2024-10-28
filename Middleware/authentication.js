@@ -4,7 +4,6 @@ const Assistant = require("../Models/assistant");
 const secret_key = process.env.SECRECT_KEY;
 async function authentication(req, res, next) {
   const { email, password } = req.body;
-  console.log(req.body);
   try {
     let user;
     user = await Assistant.findOne({ email, password });

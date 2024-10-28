@@ -4,20 +4,18 @@ const profileController = require("../Controllers/profileController");
 const authenticateToken = require("../Middleware/authJwt");
 
 router.put(
-  "/change_password",
+  "/change-password",
   authenticateToken,
   profileController.changePassword
 );
 
 router.put(
-  "/update_training_point",
+  "/update-training-point",
   authenticateToken,
   profileController.updateTrainingPoint
 );
 
-router.post("/point_category", profileController.getPoint);
-router.post("/searchStudentWithPoint", profileController.searchStudent);
-router.post("/studentByF", profileController.getStudentByF);
-router.post("/update-discipline", profileController.updateDiscipline);
+router.post("/get-points-category", profileController.getPoint);
+
 
 module.exports = router;

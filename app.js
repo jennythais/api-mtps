@@ -14,7 +14,6 @@ const swaggerUi = require("swagger-ui-express");
 db();
 const app = express();
 
-// Swagger Docs Configuration
 const swaggerOptions = {
   swaggerDefinition: {
     openapi: "3.0.0",

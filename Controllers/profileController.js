@@ -4,79 +4,98 @@ const Student = require("../Models/student");
 const Point = require("../Models/pointCategory");
 const PointCategory = require("../Models/pointCategory");
 const cron = require("node-cron");
-const changePassword = async (req, res) => {
-  const { id, currentPassword, newPassword } = req.body;
 
+const getProfile = async (req, res) => {
   try {
-    let user;
+    const emailToCheck = req.account.emailInput;
+    const passToCheck = req.account.passwordInput;
 
-    // Check if the user is an assistant
-    user = await Assistant.findOne({ id: id });
-
-    // If the user is still not found, check if the user is a student
-    if (!user) {
-      user = await Student.findOne({ id: id });
+    const assistanUser = await Assistant.findOne({
+      email: emailToCheck,
+      password: passToCheck,
+    });
+    if (assistanUser) {
+      const userProfile = {
+        id: assistanUser.id,
+        name: assistanUser.name,
+        email: assistanUser.email,
+        role: assistanUser.role,
+        facultyName: assistanUser.facultyName,
+      };
+      return res.json(userProfile);
     }
 
-    // If the user is not found, return an error
-    if (!user) {
-      return res.status(404).json({ error: "User not found" });
+    const studentUser = await Student.findOne({
+      email: emailToCheck,
+      password: passToCheck,
+    });
+    if (studentUser) {
+      const userProfile = {
+        id: studentUser.id,
+        name: studentUser.name,
+        email: studentUser.email,
+        facultyName: studentUser.facultyName,
+        trainingPoint: studentUser.trainingPoint,
+        activities: studentUser.activities,
+        role: studentUser.role,
+      };
+      return res.json(userProfile);
     }
 
-    // Check if the current password matches the user's password
-    if (currentPassword === user.password) {
-      // Update the password
-      user.password = newPassword;
-      await user.save();
-      return res.json({ message: "Password changed successfully" });
-    } else {
-      return res.status(400).json({ error: "Invalid current password" });
-    }
+    res.status(404).json({ message: "User not found" });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Internal Server Error" });
+    console.error("Error while fetching user profile:", error);
+    return res.status(500).json({ message: "Internal Server Error" });
   }
 };
 
-const updateTrainingPoint = async (req, res) => {
-  const { id, totalPoints } = req.body;
-
-  try {
-    const student = await Student.findOne({ id: id });
-
-    if (!student) {
-      return res.status(404).json({ error: "Student not found" });
-    }
-
-    student.trainingPoint = totalPoints;
-
-    await student.save();
-
-    return res.json({ message: "Training point updated successfully" });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-};
-
-const updateProfile = async (req, res) => {
-  try {
-    const { profileId, updatedProfileData } = req.body;
-    const db = await connectToDatabase();
-    const profileCollection = db.collection("students");
-
-    await profileCollection.updateOne(
-      { id: profileId },
-      { $set: updatedProfileData }
-    );
-
-    res.json({ message: "Profile updated successfully" });
-  } catch (error) {
-    console.error("Error updating profile:", error);
-    res.status(500).json({ message: "Internal Server Error" });
-  }
-};
-
+/**
+ * @swagger
+ * tags:
+ *   - name: Profile
+ *     description: Profile management
+ * /api/get-points-category:
+ *   post:
+ *     summary: Get student points
+ *     description: Retrieve points for a specific student by their ID
+ *     tags: 
+ *       - Profile
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               id:
+ *                 type: string
+ *                 description: ID of the student
+ *     responses:
+ *       200:
+ *         description: Points retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 studentId:
+ *                   type: string
+ *                 points:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       category:
+ *                         type: string
+ *                       score:
+ *                         type: number
+ *       400:
+ *         description: Student ID is missing in the request body
+ *       404:
+ *         description: Student not found
+ *       500:
+ *         description: Internal server error
+ */
 const getPoint = async (req, res) => {
   try {
     const { id } = req.body;
@@ -100,80 +119,189 @@ const getPoint = async (req, res) => {
   }
 };
 
-const searchStudent = async (req, res) => {
+/**
+ * @swagger
+ * tags:
+ *   - name: Profile
+ *     description: Profile management
+ * /api/change-password:
+ *   post:
+ *     summary: Change user password
+ *     description: Allows a user to change their password
+ *     tags:
+ *       - Profile
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               id:
+ *                 type: string
+ *                 description: The ID of the user
+ *               currentPassword:
+ *                 type: string
+ *                 description: The current password of the user
+ *               newPassword:
+ *                 type: string
+ *                 description: The new password to set
+ *     responses:
+ *       200:
+ *         description: Password changed successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *       400:
+ *         description: Invalid current password
+ *       404:
+ *         description: User not found
+ *       500:
+ *         description: Internal server error
+ */
+const changePassword = async (req, res) => {
+  const { id, currentPassword, newPassword } = req.body;
   try {
-    const { studentId, faculty } = req.body.studentId;
-    if (!studentId || !faculty) {
-      return res.status(400).json({ message: "Missing studentId and faculty" });
+    let user;
+    user = await Assistant.findOne({ id: id });
+    if (!user) {
+      user = await Student.findOne({ id: id });
     }
-    const stds = await Student.find({
-      id: studentId,
-      facultyName: faculty,
-    }).select("name id");
-    if (stds.length === 0) {
-      return res.status(404).json({ message: "Student not found " });
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
     }
-    const studentPoint = await Promise.all(
-      stds.map(async (st) => {
-        const pointCate = await PointCategory.findOne({ studentId: studentId });
-        return {
-          st,
-          point: pointCate || null,
-        };
-      })
-    );
-    res.status(200).json(studentPoint);
+    if (currentPassword === user.password) {
+      user.password = newPassword;
+      await user.save();
+      return res.json({ message: "Password changed successfully" });
+    } else {
+      return res.status(400).json({ error: "Invalid current password" });
+    }
   } catch (error) {
-    console.error("Lỗi khi tìm sinh viên:", error);
-    res.status(500).json({ message: "Lỗi máy chủ nội bộ" });
-  }
-};
-const getStudentByF = async (req, res) => {
-  try {
-    const { faculty } = req.body;
-    if (!faculty) {
-      return res.status(400).json({ message: "Missing faculty" });
-    }
-    const studentData = await Student.find({ facultyName: faculty }).select(
-      "name id"
-    );
-    if (studentData.length === 0) {
-      return res.status(404).json({ message: "Student not found " });
-    }
-    const studentF = await Promise.all(
-      studentData.map(async (st) => {
-        const pointCate = await PointCategory.findOne({ studentId: st.id });
-        return {
-          st,
-          point: pointCate || null,
-        };
-      })
-    );
-    res.status(200).json(studentF);
-  } catch (error) {
-    console.error("Lỗi khi tìm sinh viên:", error);
-    res.status(500).json({ message: "Lỗi máy chủ nội bộ" });
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
-const updateDiscipline = async (req, res) => {
-  const { studentId, name, point } = req.body;
+/**
+ * @swagger
+ * tags:
+ *   - name: Profile
+ *     description: Profile management
+ * /api/update-training-point:
+ *   put:
+ *     summary: Update student training points
+ *     description: Update the total training points for a specific student by their ID
+ *     tags:
+ *       - Profile
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               id:
+ *                 type: string
+ *                 description: The ID of the student
+ *               totalPoints:
+ *                 type: number
+ *                 description: The new total training points to assign to the student
+ *     responses:
+ *       200:
+ *         description: Training point updated successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *       404:
+ *         description: Student not found
+ *       500:
+ *         description: Internal server error
+ */
+const updateTrainingPoint = async (req, res) => {
+  const { id, totalPoints } = req.body;
   try {
-    const category = await PointCategory.findOne({ studentId });
-    if (!category) {
-      return res.status(404).json({ message: "Student not found" });
+    const student = await Student.findOne({ id: id });
+    if (!student) {
+      return res.status(404).json({ error: "Student not found" });
     }
-    if (name !== "Khong vi pham") {
-      category.discipline.push({ name, point });
-    } else {
-      category.discipline = [{ name: "Khong vi pham", point: 20 }];
-    }
-    await category.save();
-    res.json({ message: "Discipline updated successfully", category });
+    student.trainingPoint = totalPoints;
+    await student.save();
+    return res.json({ message: "Training point updated successfully" });
   } catch (error) {
-    res.status(500).json({ message: "Server error", error });
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };
+
+/**
+ * @swagger
+ * tags:
+ *   - name: Profile
+ *     description: Profile management
+ * /api/update-profile:
+ *   put:
+ *     summary: Update a student's profile
+ *     description: Update profile information for a specific student by their profile ID
+ *     tags:
+ *       - Profile
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               profileId:
+ *                 type: string
+ *                 description: The ID of the profile to update
+ *               updatedProfileData:
+ *                 type: object
+ *                 description: The updated profile data
+ *     responses:
+ *       200:
+ *         description: Profile updated successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Profile updated successfully
+ *       400:
+ *         description: Missing profileId or updatedProfileData in the request
+ *       404:
+ *         description: Profile not found
+ *       500:
+ *         description: Internal server error
+ */
+const updateProfile = async (req, res) => {
+  try {
+    const { profileId, updatedProfileData } = req.body;
+    const db = await connectToDatabase();
+    const profileCollection = db.collection("students");
+
+    await profileCollection.updateOne(
+      { id: profileId },
+      { $set: updatedProfileData }
+    );
+
+    res.json({ message: "Profile updated successfully" });
+  } catch (error) {
+    console.error("Error updating profile:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
 
 const updateRewards = async () => {
   try {
@@ -184,7 +312,6 @@ const updateRewards = async () => {
         cate.volunteer.length +
         cate.mentalPhysical.length;
 
-      // Ensure the objects being pushed into the array are valid
       if (totalActivities > 7 && totalActivities <= 10) {
         if (cate.reward.some((r) => r.name !== "Tham gia tren 7 hoat dong")) {
           cate.reward.push({ name: "Tham gia tren 7 hoat dong", point: 3 });
@@ -199,16 +326,15 @@ const updateRewards = async () => {
         }
       }
 
-      await cate.save(); 
+      await cate.save();
     });
 
-    await Promise.all(updatePromises); 
+    await Promise.all(updatePromises);
     console.log("Rewards updated successfully for all students");
   } catch (error) {
     console.error("Error updating rewards:", error);
   }
 };
-
 
 const updatePioneering = async () => {
   try {
@@ -224,9 +350,12 @@ const updatePioneering = async () => {
       if (point > 0) {
         const category = await PointCategory.findOne({ studentId: st.id });
 
-        if (category && category.pioneering.every((p) => p.name !== st.position)) {
+        if (
+          category &&
+          category.pioneering.every((p) => p.name !== st.position)
+        ) {
           category.pioneering.push({ name: st.position, point });
-          await category.save(); 
+          await category.save();
         }
       }
     });
@@ -248,7 +377,5 @@ module.exports = {
   updateTrainingPoint,
   updateProfile,
   getPoint,
-  searchStudent,
-  getStudentByF,
-  updateDiscipline,
+  
 };
