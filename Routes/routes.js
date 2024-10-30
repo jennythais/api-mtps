@@ -7,13 +7,14 @@ const post = require("./post");
 const profile = require("./profile");
 const test = require("./test");
 const assistant = require("./assistant");
-
+const auth = require("./auth");
 //! parse dữ liệu từ request body
 router.use("/", login);
 router.use("/", post);
 router.use("/", profile);
 router.use("/", test);
 router.use("/", assistant);
+router.use("/", auth);
 
 // router.use("/", test);
 router.post("/refresh_token", authForProfile.verifyRefreshToken, (req, res) => {
