@@ -8,7 +8,6 @@ const studentSchema = new mongoose.Schema({
   password: { type: String, required: true },
   activities: [{ type: String }],
   facultyName: { type: String, required: true },
-  trainingPoint: { type: Number, required: true },
   role: { type: String, require: true },
   position: {type: String, require: true}
 });

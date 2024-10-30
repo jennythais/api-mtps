@@ -4,13 +4,7 @@ const Assistant = require("../Models/assistant");
 const Student = require("../Models/student");
 const jwt = require("jsonwebtoken");
 const { JWT_SECRET, EMAIL_USER, EMAIL_PASS } = process.env;
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: EMAIL_USER,
-    pass: EMAIL_PASS,
-  },
-});
+
 /**
  * @swagger
  * tags:
@@ -48,6 +42,16 @@ const transporter = nodemailer.createTransport({
  */
 const forgotPassword = async (req, res) => {
   const { email } = req.body;
+  const transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 587,
+    service: "gmail",
+    secure: false,
+    auth: {
+      user: EMAIL_USER,
+      pass: EMAIL_PASS,
+    },
+  });
   try {
     const findUser = async (email) => {
       const assistant = await Assistant.findOne({ email: email });
@@ -66,10 +70,22 @@ const forgotPassword = async (req, res) => {
     });
     const resetLink = `http://localhost:3000/reset-password/${token}`;
     await transporter.sendMail({
-      from: EMAIL_USER,
+      from: {
+        name: "MTPS Support",
+        address: EMAIL_USER,
+      },
       to: email,
       subject: "Reset Password",
-      html: `<h1>Click <a href="${resetLink}">here</a> to reset your password</h1>`,
+      html: `<div style="font-family: Arial, sans-serif; padding: 20px; background-color: #f9f9f9;">
+            <h2 style="color: #333;">Password Reset Request</h2>
+            <p>Hello,</p>
+            <p>We received a request to reset your password for your MTPS account. Click the link below to reset it:</p>
+            <p style="text-align: center;">
+                <a href="${resetLink}" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Reset Password</a>
+            </p>
+            <p>If you did not request a password reset, please ignore this email.</p>
+            <p>Thank you,<br>MTPS Support Team</p>
+        </div>`,
     });
     res.json({ message: "Reset link sent to your email" });
   } catch (error) {
@@ -147,6 +163,7 @@ const forgotPassword = async (req, res) => {
  */
 const resetPassword = async (req, res) => {
   const { token, password } = req.body;
+
   try {
     const decoded = jwt.verify(token, JWT_SECRET);
     const assistant = await Assistant.findOne({ id: decoded.id });
