@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer");
+const bcrypt = require("bcryptjs");
 const Assistant = require("../Models/assistant");
 const Student = require("../Models/student");
 const jwt = require("jsonwebtoken");
@@ -76,4 +77,96 @@ const forgotPassword = async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
-module.exports = { forgotPassword };
+
+/**
+ * @swagger
+ * tags:
+ *  - name: Auth
+ *    description: Authentication and Authorization
+ * /api/reset-password:
+ *  post:
+ *   summary: Reset password
+ *   description: Resets user's password
+ *   tags:
+ *    - Auth
+ *   requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               token:
+ *                 type: string
+ *                 description: JWT token for resetting the password.
+ *               password:
+ *                 type: string
+ *                 description: New password to set.
+ *   responses:
+ *       200:
+ *         description: Password reset successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Password reset successfully
+ *       400:
+ *         description: Token has expired
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: Token has expired
+ *       404:
+ *         description: User not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: User not found
+ *       500:
+ *         description: Internal Server Error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: Internal Server Error
+ */
+const resetPassword = async (req, res) => {
+  const { token, password } = req.body;
+  try {
+    const decoded = jwt.verify(token, JWT_SECRET);
+    const assistant = await Assistant.findOne({ id: decoded.id });
+    if (!assistant) {
+      const student = await Student.findOne({ id: decoded.id });
+      if (!student) {
+        return res.status(404).json({ error: "User not found" });
+      }
+      student.password = await bcrypt.hash(password, 10);
+      await student.save();
+      return res.json({ message: "Password reset successfully" });
+    }
+    assistant.password = await bcrypt.hash(password, 10);
+    await assistant.save();
+    res.json({ message: "Password reset successfully" });
+  } catch (error) {
+    console.error(error);
+    if (error.name === "TokenExpiredError") {
+      return res.status(400).json({ error: "Token has expired" });
+    }
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+module.exports = { forgotPassword, resetPassword };
