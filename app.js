@@ -38,7 +38,10 @@ app.use(corsMiddleware);
 app.use(
   session({ secret: "your-secret-key", resave: true, saveUninitialized: true })
 );
-app.use(cors());
+app.use(cors({
+  origin: "http://localhost:3000",
+  credentials: true,
+}));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
