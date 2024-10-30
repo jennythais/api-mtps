@@ -1,22 +1,30 @@
 const Student = require("../Models/student");
 const Assistant = require("../Models/assistant");
+const bcrypt = require("bcryptjs");
 
 const secret_key = process.env.SECRECT_KEY;
 async function authentication(req, res, next) {
   const { email, password } = req.body;
   try {
-    let user;
-    user = await Assistant.findOne({ email, password });
+    let user = await Assistant.findOne({ email, password });
     if (user) {
-      req.account = user;
-      next();
-    } else {
-      user = await Student.findOne({ email, password });
-        if (!user) {
-          return res.status(400).json({ message: "Invalid user!" });
-        }
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (isMatch) {
         req.account = user;
         next();
+      }
+    } else {
+      return res.status(404).json({ message: "User not found" });
+    }
+    user = await Student.findOne({ email, password });
+    if (user) {
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (isMatch) {
+        req.account = user;
+        next();
+      } else {
+        return res.status(400).json({ message: "Invalid user!" });
+      }
     }
   } catch (error) {
     console.error("Error during authentication:", error);
@@ -60,10 +68,7 @@ function checkAuthorization(req, res, next) {
   if (!user) {
     return res.status(401).json({ message: "Unauthorized" });
   }
-  if (
-    user.role !== "assistant" &&
-    user.role !== "student"
-  ) {
+  if (user.role !== "assistant" && user.role !== "student") {
     return res.status(403).json({ message: "Forbidden" });
   }
   next();
@@ -74,5 +79,4 @@ module.exports = {
   isAuthenticated: isAuthenticated,
   verifyRefreshToken: verifyRefreshToken,
   checkAuthorization: checkAuthorization,
-
 };
