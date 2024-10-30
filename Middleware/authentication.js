@@ -3,29 +3,63 @@ const Assistant = require("../Models/assistant");
 const bcrypt = require("bcryptjs");
 
 const secret_key = process.env.SECRECT_KEY;
+// async function authentication(req, res, next) {
+//   const { email, password } = req.body;
+//   try {
+//     let user = await Assistant.findOne({ email });
+//     if (user) {
+//       const isMatch = await bcrypt.compare(password, user.password);
+//       if (isMatch) {
+//         req.account = user;
+//         next();
+//       }
+//     } else {
+//       return res.status(404).json({ message: "User not found" });
+//     }
+//     user = await Student.findOne({ email });
+//     if (user) {
+//       const isMatch = await bcrypt.compare(password, user.password);
+//       if (isMatch) {
+//         req.account = user;
+//         next();
+//       } else {
+//         return res.status(400).json({ message: "Invalid user!" });
+//       }
+//     }
+//   } catch (error) {
+//     console.error("Error during authentication:", error);
+//     res.status(500).json({ message: "Internal Server Error" });
+//   }
+// }
+async function authenticateUser(email, password) {
+  const userTypes = [Assistant, Student];
+
+  for (const UserModel of userTypes) {
+    const user = await UserModel.findOne({ email });
+    if (user) {
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (isMatch) {
+        return user;
+      }
+      return null; 
+    }
+  }
+  return null; 
+}
+
 async function authentication(req, res, next) {
   const { email, password } = req.body;
   try {
-    let user = await Assistant.findOne({ email });
+    const user = await authenticateUser(email, password);
+
     if (user) {
-      const isMatch = await bcrypt.compare(password, user.password);
-      if (isMatch) {
-        req.account = user;
-        next();
-      }
-    } else {
-      return res.status(404).json({ message: "User not found" });
+      req.account = user;
+      return next(); 
     }
-    user = await Student.findOne({ email });
-    if (user) {
-      const isMatch = await bcrypt.compare(password, user.password);
-      if (isMatch) {
-        req.account = user;
-        next();
-      } else {
-        return res.status(400).json({ message: "Invalid user!" });
-      }
-    }
+
+    return res
+      .status(404)
+      .json({ message: "User not found or invalid password!" });
   } catch (error) {
     console.error("Error during authentication:", error);
     res.status(500).json({ message: "Internal Server Error" });
