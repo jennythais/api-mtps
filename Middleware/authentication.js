@@ -6,7 +6,7 @@ const secret_key = process.env.SECRECT_KEY;
 async function authentication(req, res, next) {
   const { email, password } = req.body;
   try {
-    let user = await Assistant.findOne({ email, password });
+    let user = await Assistant.findOne({ email });
     if (user) {
       const isMatch = await bcrypt.compare(password, user.password);
       if (isMatch) {
@@ -16,7 +16,7 @@ async function authentication(req, res, next) {
     } else {
       return res.status(404).json({ message: "User not found" });
     }
-    user = await Student.findOne({ email, password });
+    user = await Student.findOne({ email });
     if (user) {
       const isMatch = await bcrypt.compare(password, user.password);
       if (isMatch) {
