@@ -3,6 +3,7 @@ const router = express.Router();
 const jwt = require("jsonwebtoken");
 const Assistant = require("../Models/assistant");
 const Student = require("../Models/student");
+const PointCategory = require("../Models/pointCategory");
 
 const secret_key = process.env.SECRET_KEY;
 const refresh_key = process.env.REFRESH_SECRET_KEY;
@@ -186,13 +187,16 @@ const getProfile = async (req, res) => {
       email: emailToCheck,
       password: passToCheck,
     });
+    const pointCategory = await PointCategory.findOne({
+      studentId: studentUser.id,
+    });
     if (studentUser) {
       const userProfile = {
         id: studentUser.id,
         name: studentUser.name,
         email: studentUser.email,
         facultyName: studentUser.facultyName,
-        trainingPoint: studentUser.trainingPoint,
+        trainingPoint: pointCategory,
         activities: studentUser.activities,
         role: studentUser.role,
       };
