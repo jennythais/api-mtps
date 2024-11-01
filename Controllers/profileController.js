@@ -4,8 +4,7 @@ const Student = require("../Models/student");
 const Point = require("../Models/pointCategory");
 const PointCategory = require("../Models/pointCategory");
 const cron = require("node-cron");
-
-
+const Post = require("../Models/post");
 
 /**
  * @swagger
@@ -16,7 +15,7 @@ const cron = require("node-cron");
  *   post:
  *     summary: Get student points
  *     description: Retrieve points for a specific student by their ID
- *     tags: 
+ *     tags:
  *       - Profile
  *     requestBody:
  *       required: true
@@ -145,7 +144,6 @@ const changePassword = async (req, res) => {
   }
 };
 
-
 /**
  * @swagger
  * tags:
@@ -154,7 +152,7 @@ const changePassword = async (req, res) => {
  * /api/update-training-point:
  *   put:
  *     summary: Update student training points
- *     description: Update the total training points for a specific student by their ID
+ *     description: Calculate and update the total training points for a specific student based on their activities and categorized points.
  *     tags:
  *       - Profile
  *     requestBody:
@@ -167,9 +165,6 @@ const changePassword = async (req, res) => {
  *               id:
  *                 type: string
  *                 description: The ID of the student
- *               totalPoints:
- *                 type: number
- *                 description: The new total training points to assign to the student
  *     responses:
  *       200:
  *         description: Training point updated successfully
@@ -180,20 +175,59 @@ const changePassword = async (req, res) => {
  *               properties:
  *                 message:
  *                   type: string
+ *                   description: Success message
  *       404:
- *         description: Student not found
+ *         description: Student or post not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   description: Error message
  *       500:
  *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   description: Error message
  */
 const updateTrainingPoint = async (req, res) => {
-  const { id, totalPoints } = req.body;
+  const { id } = req.body;
   try {
     const student = await Student.findOne({ id: id });
     if (!student) {
       return res.status(404).json({ error: "Student not found" });
     }
-    student.trainingPoint = totalPoints;
-    await student.save();
+    let pointPost = 0;
+
+    for (const postId of student.activities) {
+      const post = await Post.findOne({ id: postId });
+      if (!post) {
+        return res.status(404).json({ error: "Post not found" });
+      }
+      pointPost += post.point;
+    }
+    const pointCategory = await PointCategory.findOne({ studentId: id });
+    if (!pointCategory) {
+      pointCategory = new PointCategory({
+        studentId: id,
+        pioneering: [],
+        academic: [],
+        volunteer: [],
+        mentalPhysical: [],
+        reward: [],
+        pioneering: [],
+        totalPoints: pointPost,
+      });
+      await pointCategory.save();
+    }
+    pointCategory.totalPoints = pointPost;
     return res.json({ message: "Training point updated successfully" });
   } catch (error) {
     console.error(error);
@@ -260,7 +294,6 @@ const updateProfile = async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
-
 
 const updateRewards = async () => {
   try {
@@ -336,5 +369,4 @@ module.exports = {
   updateTrainingPoint,
   updateProfile,
   getPoint,
-  
 };

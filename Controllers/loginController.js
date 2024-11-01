@@ -96,6 +96,35 @@ const login = async (req, res) => {
 /**
  * @swagger
  * tags:
+ *  - name: Auth
+ *    description: Authentication and Authorization
+ * /api/logout:
+ *  post:
+ *   summary: User logout
+ *   description: Clears session and cookies to log out the user.
+ *   tags:
+ *    - Auth
+ *   responses:
+ *    200:
+ *     description: Logout successful
+ *    500:
+ *    description: Internal server error
+ */
+const logout = (req, res) => {
+  try {
+    res.clearCookie("accessToken");
+    res.clearCookie("refreshToken");
+    req.session.destroy();
+    res.json({ message: "Logout successful" });
+  } catch (error) {
+    console.error("Error during logout:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
+/**
+ * @swagger
+ * tags:
  *   - name: Profile
  *     description: Profile management
  * /api/profile:
@@ -138,7 +167,6 @@ const getProfile = async (req, res) => {
     const emailToCheck = req.account.emailInput;
     const passToCheck = req.account.passwordInput;
 
-
     const assistanUser = await Assistant.findOne({
       email: emailToCheck,
       password: passToCheck,
@@ -177,4 +205,4 @@ const getProfile = async (req, res) => {
     return res.status(500).json({ message: "Internal Server Error" });
   }
 };
-module.exports = { login: login, getProfile: getProfile };
+module.exports = { login: login, getProfile: getProfile, logout: logout };

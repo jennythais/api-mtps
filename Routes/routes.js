@@ -32,17 +32,5 @@ router.post("/refresh_token", authForProfile.verifyRefreshToken, (req, res) => {
   });
 });
 
-// Log out
-router.post("/logout", (req, res) => {
-  try {
-    res.clearCookie("accessToken");
-    res.clearCookie("refreshToken");
-    req.session.destroy();
-    res.json({ message: "Logout successful" });
-  } catch (error) {
-    console.error("Error during logout:", error);
-    res.status(500).json({ message: "Internal Server Error" });
-  }
-});
 
 module.exports = router;
