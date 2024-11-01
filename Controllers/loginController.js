@@ -75,13 +75,13 @@ const login = async (req, res) => {
 
     res.cookie("accessToken", accessToken, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production" ? true : false,
-      sameSite: "Strict",
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "None",
     });
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production" ? true : false,
-      sameSite: "Strict",
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "None",
     });
     res.json({
       token: { accessToken },
