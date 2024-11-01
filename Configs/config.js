@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config();
 
-const secretKey = process.env.SECRECT_KEY;
+const secretKey = process.env.SECRET_KEY;
 const database = {
   host: "localhost",
   port: process.env.DB_PORT,

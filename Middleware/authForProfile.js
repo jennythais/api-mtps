@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 
 const refreshSecretKey =
   process.env.REFRESH_SECRET_KEY || "your-default-secret-key";
-const secret_key = process.env.SECRECT_KEY;
+const secret_key = process.env.SECRET_KEY;
 const verifyRefreshToken = (req, res, next) => {
   const refreshToken =
     req.body.refreshToken ||

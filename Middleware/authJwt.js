@@ -1,9 +1,8 @@
 const jwt = require("jsonwebtoken");
 
 function authenticateToken(req, res, next) {
-  const authHeader = req.headers["authorization"];
-  const token = authHeader && authHeader.split(" ")[1];
-  const secret_key = process.env.SECRECT_KEY;
+  const token = req.headers["authorization"];
+  const secret_key = process.env.SECRET_KEY;
   if (!token) {
     return res.sendStatus(401); // Unauthorized
   }

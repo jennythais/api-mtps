@@ -2,7 +2,7 @@ const Student = require("../Models/student");
 const Assistant = require("../Models/assistant");
 const bcrypt = require("bcryptjs");
 
-const secret_key = process.env.SECRECT_KEY;
+const secret_key = process.env.SECRET_KEY;
 // async function authentication(req, res, next) {
 //   const { email, password } = req.body;
 //   try {
@@ -41,10 +41,10 @@ async function authenticateUser(email, password) {
       if (isMatch) {
         return user;
       }
-      return null; 
+      return null;
     }
   }
-  return null; 
+  return null;
 }
 
 async function authentication(req, res, next) {
@@ -54,7 +54,7 @@ async function authentication(req, res, next) {
 
     if (user) {
       req.account = user;
-      return next(); 
+      return next();
     }
 
     return res

@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const Assistant = require("../Models/assistant");
 const Student = require("../Models/student");
 
-const secret_key = process.env.SECRECT_KEY;
+const secret_key = process.env.SECRET_KEY;
 const refresh_key = process.env.REFRESH_SECRET_KEY;
 
 /**
