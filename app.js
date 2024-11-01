@@ -10,6 +10,7 @@ const cors = require("cors");
 const db = require("./Configs/db");
 const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
+const { config } = require("./Configs/config");
 
 db();
 const app = express();
@@ -36,19 +37,21 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.use(corsMiddleware);
 app.use(
-  session({ secret: "your-secret-key", resave: true, saveUninitialized: true })
+  session({ secret: config.secretKey, resave: true, saveUninitialized: true })
 );
-app.use(cors({
-  origin: "http://localhost:3000",
-  credentials: true,
-}));
+app.use(
+  cors({
+    origin: config.corsOrigin,
+    credentials: true,
+  })
+);
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/api", routes);
 app.use(express.static(path.join(__dirname, "public")));
 
-const port = process.env.PORT || 1212;
+const port = config.port;
 app.listen(port, () => {
   console.log(`Server chạy trên http://localhost:${port}`);
 });
