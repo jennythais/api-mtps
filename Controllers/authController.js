@@ -77,13 +77,12 @@ const forgotPassword = async (req, res) => {
       to: email,
       subject: "Reset Password",
       html: `<div style="font-family: Arial, sans-serif; padding: 20px; background-color: #f9f9f9;">
-            <h2 style="color: #333;">Password Reset Request</h2>
-            <p>Hello,</p>
-            <p>We received a request to reset your password for your MTPS account. Click the link below to reset it:</p>
+            <h2 style="color: #333; text-align: center;">Reset Password</h2>
+            <p>We received a request to reset your password for your MTPS account. Click the button below to reset:</p>
             <p style="text-align: center;">
                 <a href="${resetLink}" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Reset Password</a>
             </p>
-            <p>If you did not request a password reset, please ignore this email.</p>
+            <p>If you did not request, please ignore this email.</p>
             <p>Thank you,<br>MTPS Support Team</p>
         </div>`,
     });
