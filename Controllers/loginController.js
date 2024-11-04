@@ -113,10 +113,18 @@ const login = async (req, res) => {
  */
 const logout = (req, res) => {
   try {
+    // Clear cookies
     res.clearCookie("accessToken");
     res.clearCookie("refreshToken");
-    req.session.destroy();
-    res.json({ message: "Logout successful" });
+
+    // Destroy the session
+    req.session.destroy((err) => {
+      if (err) {
+        console.error("Session destruction error:", err);
+        return res.status(500).json({ message: "Internal Server Error" });
+      }
+      return res.json({ message: "Logout successful" });
+    });
   } catch (error) {
     console.error("Error during logout:", error);
     res.status(500).json({ message: "Internal Server Error" });
