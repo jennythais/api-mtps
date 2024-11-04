@@ -22,7 +22,7 @@ router.post("/refresh_token", authForProfile.verifyRefreshToken, (req, res) => {
     { userId: req.user.staffID },
     "your-secret-key",
     {
-      expiresIn: "15m",
+      expiresIn: "5m",
     }
   );
   res.json({

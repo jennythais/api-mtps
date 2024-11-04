@@ -113,11 +113,9 @@ const login = async (req, res) => {
  */
 const logout = (req, res) => {
   try {
-    // Clear cookies
     res.clearCookie("accessToken");
     res.clearCookie("refreshToken");
 
-    // Destroy the session
     req.session.destroy((err) => {
       if (err) {
         console.error("Session destruction error:", err);
