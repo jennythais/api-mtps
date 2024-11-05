@@ -58,7 +58,7 @@ const processExpiredPosts = async () => {
  *             schema:
  *               type: object
  *               properties:
- *                 post:
+ *                 data:
  *                   type: array
  *                   items:
  *                     type: object
@@ -122,17 +122,22 @@ const processExpiredPosts = async () => {
  *               properties:
  *                 message:
  *                   type: string
- *                 required:
- *                   - message
+ *               required:
+ *                 - message
  */
-const getAllPost = async (req, res) => {
+const getAllPost = async (res) => {
   try {
     await processExpiredPosts();
     const db = await connectToDatabase();
     const postCollection = db.collection("posts");
     const post = await postCollection.find({}).toArray();
 
-    res.json({ post });
+    res.json({
+      data: post,
+      message: "Posts fetched successfully",
+      status: 200,
+      success: true,
+    });
   } catch (error) {
     console.error("Error fetching post:", error);
     res.status(500).json({ message: "Internal Server Error" });
@@ -273,7 +278,7 @@ const getPostById = async (req, res) => {
  *             schema:
  *               type: object
  *               properties:
- *                 expiredpost:
+ *                 data:
  *                   type: array
  *                   items:
  *                     type: object
@@ -336,10 +341,20 @@ const getPostById = async (req, res) => {
 const getAllExpired = async (req, res) => {
   try {
     const expiredpost = await ExpiredPost.find();
-    res.json({ expiredpost });
+    res.json({
+      data: expiredpost,
+      message: "Expired posts fetched successfully",
+      status: 200,
+      success: true,
+    });
   } catch (error) {
-    console.error("Error fetching post:", error);
-    res.status(500).json({ message: "Internal Server Error" });
+    console.error("Error fetching expired posts:", error);
+    res.status(500).json({
+      data: null,
+      message: "Internal Server Error",
+      status: 500,
+      success: false,
+    });
   }
 };
 
@@ -367,60 +382,63 @@ const getAllExpired = async (req, res) => {
  *         content:
  *           application/json:
  *             schema:
- *               type: array
- *               items:
- *                type: object
- *                properties:
- *                 id:
- *                   type: string
- *                 name:
- *                   type: string
- *                 desc:
- *                   type: string
- *                 facultyName:
- *                   type: string
- *                 status:
- *                   type: string
- *                   enum: ["Public", "Private"]
- *                   default: "Public"
- *                 startDate:
- *                   type: string
- *                 startTime:
- *                   type: string
- *                 endDate:
- *                   type: string
- *                 endTime:
- *                   type: string
- *                 point:
- *                   type: number
- *                 location:
- *                   type: string
- *                 numberParticipants:
- *                   type: number
- *                 stdJoin:
- *                   type: array
- *                   items:
- *                     type: string
- *                 testId:
- *                   type: string
- *                 category:
- *                   type: string
- *               required:
- *                 - id
- *                 - name
- *                 - desc
- *                 - facultyName
- *                 - status
- *                 - startDate
- *                 - startTime
- *                 - endDate
- *                 - endTime
- *                 - point
- *                 - location
- *                 - numberParticipants
- *                 - stdJoin
- *                 - testId
- *                 - category
+ *               type: object
+ *               properties:
+ *                data:
+ *                  type: array
+ *                  items:
+ *                    type: object
+ *                    properties:
+ *                        id:
+ *                          type: string
+ *                        name:
+ *                          type: string
+ *                        desc:
+ *                          type: string
+ *                        facultyName:
+ *                          type: string
+ *                        status:
+ *                          type: string
+ *                          enum: ["Public", "Private"]
+ *                          default: "Public"
+ *                        startDate:
+ *                          type: string
+ *                        startTime:
+ *                          type: string
+ *                        endDate:
+ *                          type: string
+ *                        endTime:
+ *                          type: string
+ *                        point:
+ *                          type: number
+ *                        location:
+ *                          type: string
+ *                        numberParticipants:
+ *                          type: number
+ *                        stdJoin:
+ *                          type: array
+ *                        items:
+ *                          type: string
+ *                        testId:
+ *                          type: string
+ *                        category:
+ *                          type: string
+ *                    required:
+ *                      - id
+ *                      - name
+ *                      - desc
+ *                      - facultyName
+ *                      - status
+ *                      - startDate
+ *                      - startTime
+ *                      - endDate
+ *                      - endTime
+ *                      - point
+ *                      - location
+ *                      - numberParticipants
+ *                      - stdJoin
+ *                      - testId
+ *                      - category
  *       404:
  *         description: Post not found
  *         content:
@@ -480,19 +498,24 @@ const getPostByCategory = async (req, res) => {
  *            content:
  *              application/json:
  *                schema:
- *                type: object
- *              properties:
- *                filteredAttendees:
- *                  type: array
- *                  items:
- *                    type: object
- *                    properties:
- *                      name:
- *                        type: string
- *                      email:
- *                        type: string
- *                      postResult:
- *                        type: string
+ *                  type: object
+ *                  properties:
+ *                      data: 
+ *                        type: array
+ *                        items:
+ *                          type: object
+ *                          properties:
+ *                            filteredAttendees:
+ *                              type: array
+ *                              items:
+ *                                type: object
+ *                                properties:
+ *                                  name:
+ *                                    type: string
+ *                                  email:
+ *                                    type: string
+ *                                  postResult:
+ *                                    type: string
  *         500:
  *            description: Internal Server Error
  *            content:
@@ -515,7 +538,12 @@ const getAllAttendees = async (req, res) => {
       (attendee) => attendee.postId === id
     );
 
-    res.json({ filteredAttendees });
+    res.json({
+      data: filteredAttendees,
+      message: "Attendees fetched successfully",
+      status: 200,
+      success: true,
+    });
   } catch (error) {
     console.error("Error fetching tables:", error);
     res.status(500).json({ message: "Internal Server Error" });
@@ -813,7 +841,7 @@ const updatePosts = async (req, res) => {
 
 /**
  * @swagger
- * tags: 
+ * tags:
  *   - name: Posts
  *     description: API for managing posts
  * /api/check_attendance:
@@ -858,7 +886,7 @@ const updatePosts = async (req, res) => {
  *      description: Post not found
  *      content:
  *        application/json:
- *         schema: 
+ *         schema:
  *          type: object
  *          properties:
  *           message:
