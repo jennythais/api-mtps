@@ -125,7 +125,7 @@ const processExpiredPosts = async () => {
  *               required:
  *                 - message
  */
-const getAllPost = async (res) => {
+const getAllPost = async (req, res) => {
   try {
     await processExpiredPosts();
     const db = await connectToDatabase();
@@ -500,7 +500,7 @@ const getPostByCategory = async (req, res) => {
  *                schema:
  *                  type: object
  *                  properties:
- *                      data: 
+ *                      data:
  *                        type: array
  *                        items:
  *                          type: object
