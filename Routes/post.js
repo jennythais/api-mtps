@@ -5,7 +5,7 @@ const authenticateToken = require("../Middleware/authJwt");
 
 router.get("/posts", postController.getAllPost);
 router.get("/post_by_id/:postID", postController.getPostById);
-router.get("/post_by_cate", postController.getPostByCategory);
+router.get("/post_by_category", postController.getPostByCategory);
 router.get("/list_attendees/:id", postController.getAllAttendees);
 router.post("/create_post", postController.createPost);
 router.put("/update_post", authenticateToken, postController.updatePosts);
