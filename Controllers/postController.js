@@ -455,6 +455,7 @@ const getAllExpired = async (req, res) => {
 const getPostByCategory = async (req, res) => {
   try {
     const { categories } = req.query;
+    console.log(req.query);
     if (!categories) {
       return res.status(400).json({ message: "Category is required" });
     }
