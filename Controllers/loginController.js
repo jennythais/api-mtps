@@ -40,14 +40,17 @@ const refresh_key = process.env.REFRESH_SECRET_KEY;
  *             schema:
  *               type: object
  *               properties:
- *                 token:
- *                   type: object
- *                   properties:
+ *                data:
+ *                  type: object
+ *                  properties:
+ *                  token:
+ *                    type: object
+ *                    properties:
  *                     accessToken:
  *                       type: string
- *                 message:
+ *                  message:
  *                   type: string
- *                 role:
+ *                  role:
  *                   type: string
  *       401:
  *         description: Unauthorized
@@ -84,9 +87,11 @@ const login = async (req, res) => {
       sameSite: "None",
     });
     res.json({
-      token: { accessToken },
-      message: "Login successful",
-      role: req.account.role,
+      data: {
+        token: { accessToken },
+        message: "Login successful",
+        role: req.account.role,
+      },
     });
   } catch (error) {
     console.error("Error during login:", error);
@@ -211,7 +216,7 @@ const getProfile = async (req, res) => {
         activities: studentUser.activities,
         role: studentUser.role,
       };
-      return res.json({data: userProfile});
+      return res.json({ data: userProfile });
     }
 
     res.status(404).json({ message: "User not found" });
