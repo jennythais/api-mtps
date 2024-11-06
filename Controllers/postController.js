@@ -58,7 +58,7 @@ const processExpiredPosts = async () => {
  *             schema:
  *               type: object
  *               properties:
- *                 data:
+ *                 post:
  *                   type: array
  *                   items:
  *                     type: object
@@ -133,10 +133,8 @@ const getAllPost = async (req, res) => {
     const post = await postCollection.find({}).toArray();
 
     res.json({
-      data: post,
+      post,
       message: "Posts fetched successfully",
-      status: 200,
-      success: true,
     });
   } catch (error) {
     console.error("Error fetching post:", error);
