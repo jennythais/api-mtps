@@ -132,10 +132,7 @@ const getAllPost = async (req, res) => {
     const postCollection = db.collection("posts");
     const post = await postCollection.find({}).toArray();
 
-    res.json({
-      post,
-      message: "Posts fetched successfully",
-    });
+    res.json(post);
   } catch (error) {
     console.error("Error fetching post:", error);
     res.status(500).json({ message: "Internal Server Error" });
