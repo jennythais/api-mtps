@@ -148,21 +148,24 @@ const logout = (req, res) => {
  *             schema:
  *               type: object
  *               properties:
- *                 id:
- *                   type: string
- *                 name:
- *                   type: string
- *                 email:
- *                   type: string
- *                 role:
- *                   type: string
- *                 facultyName:
- *                   type: string
- *                 trainingPoint:
- *                   type: number
- *                 activities:
- *                   type: array
- *                   items:
+ *                data:
+ *                 type: object
+ *                 properties:
+ *                  id:
+ *                    type: string
+ *                  name:
+ *                    type: string
+ *                  email:
+ *                    type: string
+ *                  role:
+ *                    type: string
+ *                  facultyName:
+ *                    type: string
+ *                  trainingPoint:
+ *                    type: number
+ *                  activities:
+ *                    type: array
+ *                    items:
  *                     type: object
  *       404:
  *         description: User not found
@@ -186,7 +189,9 @@ const getProfile = async (req, res) => {
         role: assistanUser.role,
         facultyName: assistanUser.facultyName,
       };
-      return res.json(userProfile);
+      return res.json({
+        data: userProfile,
+      });
     }
 
     const studentUser = await Student.findOne({
@@ -206,7 +211,7 @@ const getProfile = async (req, res) => {
         activities: studentUser.activities,
         role: studentUser.role,
       };
-      return res.json(userProfile);
+      return res.json({data: userProfile});
     }
 
     res.status(404).json({ message: "User not found" });

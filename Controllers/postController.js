@@ -58,7 +58,7 @@ const processExpiredPosts = async () => {
  *             schema:
  *               type: object
  *               properties:
- *                 post:
+ *                 data:
  *                   type: array
  *                   items:
  *                     type: object
@@ -132,7 +132,10 @@ const getAllPost = async (req, res) => {
     const postCollection = db.collection("posts");
     const post = await postCollection.find({}).toArray();
 
-    res.json(post);
+    res.json({
+      data: post,
+      message: "Posts fetched successfully",
+    });
   } catch (error) {
     console.error("Error fetching post:", error);
     res.status(500).json({ message: "Internal Server Error" });
@@ -165,41 +168,44 @@ const getAllPost = async (req, res) => {
  *             schema:
  *               type: object
  *               properties:
- *                 id:
- *                   type: string
- *                 name:
- *                   type: string
- *                 desc:
- *                   type: string
- *                 facultyName:
- *                   type: string
- *                 status:
- *                   type: string
- *                   enum: ["Public", "Private"]
- *                   default: "Public"
- *                 startDate:
- *                   type: string
- *                 startTime:
- *                   type: string
- *                 endDate:
- *                   type: string
- *                 endTime:
- *                   type: string
- *                 point:
- *                   type: number
- *                 location:
- *                   type: string
- *                 numberParticipants:
- *                   type: number
- *                 stdJoin:
- *                   type: array
- *                   items:
+ *                data:
+ *                 type: object
+ *                 properties:
+ *                  id:
+ *                    type: string
+ *                  name:
+ *                    type: string
+ *                  desc:
+ *                    type: string
+ *                  facultyName:
+ *                    type: string
+ *                  status:
+ *                    type: string
+ *                    enum: ["Public", "Private"]
+ *                    default: "Public"
+ *                  startDate:
+ *                    type: string
+ *                  startTime:
+ *                    type: string
+ *                  endDate:
+ *                    type: string
+ *                  endTime:
+ *                    type: string
+ *                  point:
+ *                    type: number
+ *                  location:
+ *                    type: string
+ *                  numberParticipants:
+ *                    type: number
+ *                  stdJoin:
+ *                    type: array
+ *                    items:
  *                     type: string
- *                 testId:
- *                   type: string
- *                 category:
- *                   type: string
- *               required:
+ *                  testId:
+ *                    type: string
+ *                  category:
+ *                    type: string
+ *                required:
  *                 - id
  *                 - name
  *                 - desc
@@ -244,9 +250,9 @@ const getPostById = async (req, res) => {
           error: `Post with ID ${postID} not found in both sources.`,
         });
       }
-      res.status(200).json(post);
+      res.status(200).json({data: post});
     } else {
-      res.status(200).json(post);
+      res.status(200).json({data: post});
     }
   } catch (error) {
     console.error(`Error fetching post specific data: ${error.message}`);
