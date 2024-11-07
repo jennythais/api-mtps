@@ -127,10 +127,18 @@ const processExpiredPosts = async () => {
  */
 const getAllPost = async (req, res) => {
   try {
+    const userEmail = req.account.emailInput;
+    const user = await Student.findOne({ email: userEmail });
     await processExpiredPosts();
     const db = await connectToDatabase();
     const postCollection = db.collection("posts");
-    const post = await postCollection.find({}).toArray();
+    const query = {
+      $or: [
+        { status: "Public" },
+        { status: "Private", facultyName: user.facultyName },
+      ],
+    };
+    const post = await postCollection.find(query).toArray();
 
     res.json({
       data: post,
@@ -250,9 +258,9 @@ const getPostById = async (req, res) => {
           error: `Post with ID ${postID} not found in both sources.`,
         });
       }
-      res.status(200).json({data: post});
+      res.status(200).json({ data: post });
     } else {
-      res.status(200).json({data: post});
+      res.status(200).json({ data: post });
     }
   } catch (error) {
     console.error(`Error fetching post specific data: ${error.message}`);
@@ -455,7 +463,7 @@ const getAllExpired = async (req, res) => {
 const getPostByCategory = async (req, res) => {
   try {
     const { categories } = req.query;
-    console.log(req.query);
+
     if (!categories) {
       return res.status(400).json({ message: "Category is required" });
     }
@@ -469,7 +477,9 @@ const getPostByCategory = async (req, res) => {
 
     const posts = await Post.find({ category: { $in: categoriesArray } });
 
-    res.status(200).json(posts);
+    res.status(200).json({
+      data: posts,
+    });
   } catch (error) {
     console.error("Error in getPostByCategory:", error);
     res.status(500).json({ message: "Error fetching posts by category" });
