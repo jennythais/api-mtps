@@ -5,6 +5,7 @@ const Point = require("../Models/pointCategory");
 const PointCategory = require("../Models/pointCategory");
 const cron = require("node-cron");
 const Post = require("../Models/post");
+const bcrypt = require("bcryptjs");
 
 /**
  * @swagger
@@ -131,8 +132,11 @@ const changePassword = async (req, res) => {
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
-    if (currentPassword === user.password) {
-      user.password = newPassword;
+    const hashCurrentPassword = await bcrypt.hash(currentPassword, 10);
+    const hashNewPassword = await bcrypt.hash(newPassword, 10);
+    const isMatch = await bcrypt.compare(hashCurrentPassword, user.password);
+    if (isMatch) {
+      user.password = hashNewPassword;
       await user.save();
       return res.json({ message: "Password changed successfully" });
     } else {
