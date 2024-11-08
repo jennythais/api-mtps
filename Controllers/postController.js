@@ -856,6 +856,98 @@ const updatePosts = async (req, res) => {
  * tags:
  *   - name: Posts
  *     description: API for managing posts
+ *
+ * /api/join_post:
+ *   post:
+ *     summary: Join a student to a post
+ *     description: Allows a student to join an activity post.
+ *     tags:
+ *       - Posts
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               studentId:
+ *                 type: string
+ *                 description: The ID of the student joining the post
+ *                 example: "12345"
+ *               postId:
+ *                 type: string
+ *                 description: The ID of the post to join
+ *                 example: "98765"
+ *     responses:
+ *       200:
+ *         description: Successfully joined the post
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Student joined post successfully"
+ *       400:
+ *         description: Student has already joined the post
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Student already joined this post"
+ *       404:
+ *         description: Student not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Student not found"
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Internal server error"
+ */
+const joinPost = async (req, res) => {
+  const { studentId, postId } = req.body;
+  try {
+    const student = await Student.findOne({ id: studentId });
+    if (!student) {
+      return res.status(404).json({ message: "Student not found" });
+    }
+    const post = await Post.findOne({ id: postId });
+    if (post.stdJoin.includes(studentId)) {
+      return res
+        .status(400)
+        .json({ message: "Student already joined this post" });
+    }
+    post.stdJoin.push(studentId);
+    await post.save();
+    return res
+      .status(200)
+      .json({ message: "Student joined post successfully" });
+  } catch (error) {
+    console.error("Error joining post:", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};
+/**
+ * @swagger
+ * tags:
+ *   - name: Posts
+ *     description: API for managing posts
  * /api/check_attendance:
  *  put:
  *   summary: Check attendance
@@ -1006,4 +1098,5 @@ module.exports = {
   getAllAttendees,
   checkAttendance,
   getAllExpired,
+  joinPost,
 };
