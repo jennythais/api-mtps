@@ -36,11 +36,14 @@ const bcrypt = require("bcryptjs");
  *             schema:
  *               type: object
  *               properties:
- *                 studentId:
- *                   type: string
- *                 points:
- *                   type: array
- *                   items:
+ *                data:
+ *                 type: object
+ *                 properties:
+ *                  studentId:
+ *                    type: string
+ *                  points:
+ *                    type: array
+ *                    items:
  *                     type: object
  *                     properties:
  *                       category:
@@ -70,7 +73,7 @@ const getPoint = async (req, res) => {
     }
 
     // Trả về dữ liệu nếu tìm thấy
-    res.json(points);
+    res.json({data: points});
   } catch (error) {
     console.error("Error retrieving points:", error);
     res.status(500).json({ message: "Internal Server Error" });
