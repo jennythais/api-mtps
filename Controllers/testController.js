@@ -301,8 +301,11 @@ const doTest = async (req, res) => {
       const catePoint = new postCate({
         studentId: profileId,
         academic: [],
+        totalAcademic: 0,
         volunteer: [],
+        totalVolunteer: 0,
         mentalPhysical: [],
+        totalMentalPhysical: 0,
         discipline: [
           {
             name: "Không vi phạm",
@@ -310,7 +313,10 @@ const doTest = async (req, res) => {
           },
         ],
         reward: [],
+        totalReward: 0,
         pioneering: [],
+        totalPioneering: 0,
+        totalPoints: 0,
       });
 
       await catePoint.save();
@@ -341,13 +347,13 @@ const doTest = async (req, res) => {
     if (correctAnswers >= test.target) {
       switch (post.category) {
         case "academic":
-          catePoint.academic.push(post.id);
+          catePoint.academic.push({ name: post.name, point: post.point });
           break;
         case "volunteer":
-          catePoint.volunteer.push(post.id);
+          catePoint.volunteer.push({ name: post.name, point: post.point });
           break;
         case "mentalPhysical":
-          catePoint.mentalPhysical.push(post.id);
+          catePoint.mentalPhysical.push({ name: post.name, point: post.point });
           break;
         default:
           return res.status(400).json({ message: "Invalid post category" });

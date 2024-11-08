@@ -942,16 +942,16 @@ const checkAttendance = async (req, res) => {
       switch (post.category) {
         case "academic":
           if (postAlreadyAdded("academic", student.academic)) return;
-          student.academic.push(postId);
+          student.academic.push({ name: postId, point: post.point });
           break;
         case "volunteer":
           if (postAlreadyAdded("volunteer", student.volunteer)) return;
-          student.volunteer.push(postId);
+          student.volunteer.push({ name: postId, point: post.point });
           break;
         case "mentalPhysical":
           if (postAlreadyAdded("mentalPhysical", student.mentalPhysical))
             return;
-          student.mentalPhysical.push(postId);
+          student.mentalPhysical.push({ name: postId, point: post.point });
           break;
         default:
           return res.status(400).json({ message: "Invalid post category" });

@@ -73,7 +73,7 @@ const getPoint = async (req, res) => {
     }
 
     // Trả về dữ liệu nếu tìm thấy
-    res.json({data: points});
+    res.json({ data: points });
   } catch (error) {
     console.error("Error retrieving points:", error);
     res.status(500).json({ message: "Internal Server Error" });
@@ -225,10 +225,15 @@ const updateTrainingPoint = async (req, res) => {
       pointCategory = new PointCategory({
         studentId: id,
         pioneering: [],
+        totalPioneering: 0,
         academic: [],
+        totalAcademic: 0,
         volunteer: [],
+        totalVolunteer: 0,
         mentalPhysical: [],
+        totalMentalPhysical: 0,
         reward: [],
+        totalReward: 0,
         pioneering: [],
         totalPoints: pointPost,
       });
@@ -288,7 +293,7 @@ const updateProfile = async (req, res) => {
   try {
     const { profileId, updatedProfileData } = req.body;
     const db = await connectToDatabase();
-    const profileCollection = db.collection("students");
+    const profileCollection = db.collection("sqtudents");
 
     await profileCollection.updateOne(
       { id: profileId },
@@ -366,10 +371,47 @@ const updatePioneering = async () => {
   }
 };
 
+const updateTotalOfCategory = async () => {
+  try {
+    const students = await Student.find();
+    const updatePromises = students.map(async (st) => {
+      const category = await PointCategory.findOne({ studentId: st.id });
+      if (category) {
+        category.totalAcademic = category.academic.reduce(
+          (acc, cur) => acc + cur.point,
+          0
+        );
+        category.totalVolunteer = category.volunteer.reduce(
+          (acc, cur) => acc + cur.point,
+          0
+        );
+        category.totalMentalPhysical = category.mentalPhysical.reduce(
+          (acc, cur) => acc + cur.point,
+          0
+        );
+        category.totalReward = category.reward.reduce(
+          (acc, cur) => acc + cur.point,
+          0
+        );
+        category.totalPioneering = category.pioneering.reduce(
+          (acc, cur) => acc + cur.point,
+          0
+        );
+
+        await category.save();
+      }
+    });
+    await Promise.all(updatePromises);
+    console.log("Total points of categories updated successfully");
+  } catch (error) {
+    console.error("Error updating total points of categories:", error);
+  }
+};
 cron.schedule("*/5 * * * *", () => {
   console.log("Running scheduled tasks to update rewards and pioneering...");
   updateRewards();
   updatePioneering();
+  updateTotalOfCategory();
 });
 module.exports = {
   changePassword,

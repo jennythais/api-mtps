@@ -4,10 +4,19 @@ const pointDetailSchema = new mongoose.Schema({
   point: { type: Number, required: true },
 });
 const pointCategorySchema = new mongoose.Schema({
-  studentId: { type: String, required: true, unique: true, ref: 'Student', index: true },
-  academic: [{ type: String, required: true }],
-  volunteer: [{ type: String, required: true }],
-  mentalPhysical: [{ type: String, required: true }],
+  studentId: {
+    type: String,
+    required: true,
+    unique: true,
+    ref: "Student",
+    index: true,
+  },
+  academic: { type: [pointDetailSchema] },
+  totalAcademic: { type: Number, default: 0, max: 20 },
+  volunteer: { type: [pointDetailSchema] },
+  totalVolunteer: { type: Number, default: 0, max: 20 },
+  mentalPhysical: { type: [pointDetailSchema] },
+  totalMentalPhysical: { type: Number, default: 0, max: 20 },
   discipline: {
     type: [pointDetailSchema],
     default: [
@@ -17,16 +26,18 @@ const pointCategorySchema = new mongoose.Schema({
       },
     ],
   },
-  reward: [pointDetailSchema],
-  pioneering: [pointDetailSchema],
+  reward: { type: [pointDetailSchema] },
+  totalReward: { type: Number, default: 0, max: 20 },
+  pioneering: { type: [pointDetailSchema] },
+  totalPioneering: { type: Number, default: 0, max: 20 },
   totalPoints: { type: Number, default: 0, max: 100 },
 });
 
-pointCategorySchema.virtual('student', {
-  ref: 'Student',
-  localField: 'studentId',
-  foreignField: 'id',
-  justOne: true
+pointCategorySchema.virtual("student", {
+  ref: "Student",
+  localField: "studentId",
+  foreignField: "id",
+  justOne: true,
 });
 
 const pointCategory = mongoose.model("pointCategory", pointCategorySchema);
