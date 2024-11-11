@@ -4,6 +4,11 @@ const postController = require("../Controllers/postController");
 const authenticateToken = require("../Middleware/authJwt");
 
 router.get("/posts", authenticateToken, postController.getAllPost);
+router.get(
+  "/posts-assistant",
+  authenticateToken,
+  postController.getAllPostAssistant
+);
 router.get("/post_by_id/:postID", postController.getPostById);
 router.get("/post_by_category", postController.getPostByCategory);
 router.get("/list_attendees/:id", postController.getAllAttendees);

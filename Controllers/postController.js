@@ -155,6 +155,108 @@ const getAllPost = async (req, res) => {
  * tags:
  *   - name: Posts
  *     description: API for managing posts
+ * /api/posts-assistant:
+ *   get:
+ *     summary: Get all posts for assistant
+ *     description: Get all posts from the database
+ *     tags:
+ *       - Posts
+ *     responses:
+ *       200:
+ *         description: A list of posts
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       id:
+ *                         type: string
+ *                       name:
+ *                         type: string
+ *                       desc:
+ *                         type: string
+ *                       facultyName:
+ *                         type: string
+ *                       status:
+ *                         type: string
+ *                         enum: ["Public", "Private"]
+ *                         default: "Public"
+ *                       startDate:
+ *                         type: string
+ *                       startTime:
+ *                         type: string
+ *                       endDate:
+ *                         type: string
+ *                       endTime:
+ *                         type: string
+ *                       point:
+ *                         type: number
+ *                       location:
+ *                         type: string
+ *                       numberParticipants:
+ *                         type: number
+ *                       stdJoin:
+ *                         type: array
+ *                         items:
+ *                           type: string
+ *                       testId:
+ *                         type: string
+ *                       category:
+ *                         type: string
+ *                     required:
+ *                       - id
+ *                       - name
+ *                       - desc
+ *                       - facultyName
+ *                       - status
+ *                       - startDate
+ *                       - startTime
+ *                       - endDate
+ *                       - endTime
+ *                       - point
+ *                       - location
+ *                       - numberParticipants
+ *                       - stdJoin
+ *                       - testId
+ *                       - category
+ *       500:
+ *         description: Internal Server Error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *               required:
+ *                 - message
+ */
+const getAllPostAssistant = async (req, res) => {
+  try {
+    await processExpiredPosts();
+    const db = await connectToDatabase();
+    const postCollection = db.collection("posts");
+    const post = await postCollection.find({}).toArray();
+
+    res.json({
+      data: post,
+      message: "Posts fetched successfully",
+    });
+  } catch (error) {
+    console.error("Error fetching post:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+/**
+ * @swagger
+ * tags:
+ *   - name: Posts
+ *     description: API for managing posts
  * /api/post_by_id/{postID}:
  *   get:
  *     summary: Get post by ID
@@ -1092,6 +1194,7 @@ const checkAttendance = async (req, res) => {
 
 module.exports = {
   getAllPost,
+  getAllPostAssistant,
   getPostById,
   getPostByCategory,
   createPost,
