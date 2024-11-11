@@ -934,6 +934,7 @@ const joinPost = async (req, res) => {
         .json({ message: "Student already joined this post" });
     }
     post.stdJoin.push(studentId);
+    post.numberParticipants -= 1;
     await post.save();
     return res
       .status(200)
