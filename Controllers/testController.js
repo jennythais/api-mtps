@@ -100,28 +100,31 @@ const getTest = async (req, res) => {
  *         schema:
  *           type: object
  *           properties:
- *            testId:
- *             type: string
- *            questions:
- *             type: array
- *             items:
- *              type: object
- *              properties:
- *               question:
+ *            data:
+ *             type: object
+ *             properties:
+ *              testId:
  *                type: string
- *               correctOption:
- *                type: string
- *               options:
+ *              questions:
  *                type: array
- *                items:
- *                  type: object
- *                  properties:
- *                   id:
+ *              items:
+ *                type: object
+ *                properties:
+ *                  question:
  *                    type: string
- *                   text:
+ *                  correctOption:
  *                    type: string
- *            target:
- *             type: number
+ *                  options:
+ *                    type: array
+ *                    items:
+ *                      type: object
+ *                      properties:
+ *                        id:
+ *                          type: string
+ *                        text:
+ *                          type: string
+ *              target:
+ *                type: number
  *    404:
  *     description: Post not found
  *    500:
@@ -139,7 +142,7 @@ const getTestById = async (req, res) => {
     if (!test) {
       return res.status(404).json({ message: "Test not found" });
     }
-    res.status(200).json(test);
+    res.status(200).json({ data: test });
   } catch (error) {
     console.error("Error fetching test data:", error);
     res.status(500).json({ message: "Internal server error" });
