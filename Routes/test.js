@@ -5,5 +5,5 @@ const testController = require("../Controllers/testController");
 router.get("/tests", testController.getTest);
 router.post("/do-test", testController.doTest);
 router.post("/create-test", testController.createTest);
-router.get("/test-by-id/:postId", testController.getTestById);
+router.get("/test-by-id", testController.getTestById);
 module.exports = router;

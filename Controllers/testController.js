@@ -79,14 +79,14 @@ const getTest = async (req, res) => {
  * tags:
  *  - name: Tests
  *    description: All about Test
- * /api/test-by-id/{postId}:
+ * /api/test-by-id:
  *   get:
  *    summary: Get test by post id
  *    description: Get test by post id
  *    tags:
  *     - Tests
  *    parameters:
- *     - in: path
+ *     - in: query
  *       name: postId
  *       required: true
  *       description: ID of the post to find and get test
@@ -129,7 +129,7 @@ const getTest = async (req, res) => {
  */
 const getTestById = async (req, res) => {
   try {
-    const { postId } = req.params;
+    const { postId } = req.query;
     const post = await Post.findOne({ id: postId });
     if (!post) {
       return res.status(404).json({ message: "Post not found" });
