@@ -9,7 +9,7 @@ router.get(
   authenticateToken,
   postController.getAllPostAssistant
 );
-router.get("/post_by_id/:postID", postController.getPostById);
+router.get("/post_by_id", postController.getPostById);
 router.get("/post_by_category", postController.getPostByCategory);
 router.get("/list_attendees/:id", postController.getAllAttendees);
 router.post("/create_post", postController.createPost);

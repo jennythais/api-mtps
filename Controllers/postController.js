@@ -257,7 +257,7 @@ const getAllPostAssistant = async (req, res) => {
  * tags:
  *   - name: Posts
  *     description: API for managing posts
- * /api/post_by_id/{postID}:
+ * /api/post_by_id:
  *   get:
  *     summary: Get post by ID
  *     description: Get post by ID from the database
@@ -265,7 +265,7 @@ const getAllPostAssistant = async (req, res) => {
  *       - Posts
  *     parameters:
  *       - name: postID
- *         in: path
+ *         in: query
  *         description: ID of the post to get
  *         required: true
  *         schema:
@@ -345,7 +345,7 @@ const getAllPostAssistant = async (req, res) => {
  */
 const getPostById = async (req, res) => {
   try {
-    const { postID } = req.params;
+    const { postID } = req.query;
     if (!postID) {
       return res
         .status(400)
