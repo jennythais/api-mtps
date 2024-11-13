@@ -928,7 +928,7 @@ const updatePosts = async (req, res) => {
     if (!post) {
       return res.status(404).json({ message: "Post not found" });
     }
-    if (location === "online") {
+    if (location === "Online") {
       const test = await Test.findOne({ testId: post.testId });
       if (!test) {
         return res.status(404).json({ message: "Test not found" });
