@@ -1052,7 +1052,7 @@ const joinPost = async (req, res) => {
  *   - name: Posts
  *     description: API for managing posts
  * /api/check_attendance:
- *  put:
+ *  post:
  *   summary: Check attendance
  *   description: Check attendance for a post
  *   tags:
@@ -1111,7 +1111,7 @@ const joinPost = async (req, res) => {
 const checkAttendance = async (req, res) => {
   try {
     const { postId, studentId } = req.body;
-
+    console.log(req.body);
     const post = await Post.findOne({ id: postId });
     if (!post) {
       return res.status(404).json({ message: "Post not found" });
