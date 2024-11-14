@@ -1201,15 +1201,12 @@ const checkAttendance = async (req, res) => {
     if (!post) {
       return res.status(404).json({ message: "Post not found" });
     }
-
-    // Check if student has already joined
     if (!post.stdJoin.includes(studentId)) {
       return res
         .status(400)
         .json({ message: "Student has not joined this post" });
     }
 
-    // Helper function to check if post is already added in a category
     const postAlreadyAdded = (category, array) => {
       if (array.includes(postId)) {
         return res
@@ -1218,14 +1215,11 @@ const checkAttendance = async (req, res) => {
       }
       return false;
     };
-
-    // Find student data
     const student = await postCate.findOne({ studentId: studentId });
     const stu = await Student.findOne({ id: studentId });
     if (!stu) {
       return res.status(404).json({ message: "Student not found" });
     }
-    // If student does not exist, create a new one
     if (!student) {
       const newStudent = new postCate({
         studentId: studentId,
@@ -1268,7 +1262,6 @@ const checkAttendance = async (req, res) => {
         return res.status(400).json({ message: "Invalid post category" });
     }
 
-    // Check activities for the student
     if (stu.activities.includes(postId)) {
       return res
         .status(400)
@@ -1276,11 +1269,9 @@ const checkAttendance = async (req, res) => {
     }
     stu.activities.push(postId);
 
-    // Save updated student documents
     await student.save();
     await stu.save();
 
-    // Update attendees list
     let attendeesFind = await Attendees.findOne({ postId: postId });
     if (attendeesFind) {
       attendeesFind.attendees.push({
