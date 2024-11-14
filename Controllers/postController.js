@@ -1081,32 +1081,32 @@ const joinPost = async (req, res) => {
  *            message:
  *             type: string
  *    400:
- *      description: Post already added in category
- *      content:
- *        application/json:
- *         schema:
- *          type: object
- *          properties:
+ *     description: Post already added in category
+ *     content:
+ *      application/json:
+ *       schema:
+ *         type: object
+ *         properties:
  *           message:
- *           type: string
+ *             type: string
  *    404:
- *      description: Post not found
- *      content:
- *        application/json:
- *         schema:
- *          type: object
- *          properties:
+ *     description: Post not found
+ *     content:
+ *      application/json:
+ *       schema:
+ *         type: object
+ *         properties:
  *           message:
- *            type: string
- *   500:
- *    description: Internal server error
- *    content:
- *     application/json:
- *      schema:
- *        type: object
- *        properties:
- *         message:
- *          type: string
+ *             type: string
+ *    500:
+ *     description: Internal server error
+ *     content:
+ *      application/json:
+ *       schema:
+ *         type: object
+ *         properties:
+ *           message:
+ *             type: string
  */
 const checkAttendance = async (req, res) => {
   try {
