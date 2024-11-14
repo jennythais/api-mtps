@@ -1222,10 +1222,33 @@ const checkAttendance = async (req, res) => {
     // Find student data
     const student = await postCate.findOne({ studentId: studentId });
     const stu = await Student.findOne({ id: studentId });
-    if (!student || !stu) {
+    if (!stu) {
       return res.status(404).json({ message: "Student not found" });
     }
-
+    // If student does not exist, create a new one
+    if (!student) {
+      const newStudent = new postCate({
+        studentId: studentId,
+        academic: [],
+        totalAcademic: 0,
+        volunteer: [],
+        totalVolunteer: 0,
+        mentalPhysical: [],
+        totalMentalPhysical: 0,
+        discipline: [
+          {
+            name: "Không vi phạm",
+            point: 20,
+          },
+        ],
+        reward: [],
+        totalReward: 0,
+        pioneering: [],
+        totalPioneering: 0,
+        totalPoints: 0,
+      });
+      await newStudent.save();
+    }
     // Add post to appropriate category in student data
     switch (post.category) {
       case "academic":
