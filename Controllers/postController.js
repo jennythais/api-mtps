@@ -1108,90 +1108,183 @@ const joinPost = async (req, res) => {
  *                message:
  *                  type: string
  */
+// const checkAttendance = async (req, res) => {
+//   try {
+//     const { postId, studentId } = req.body;
+//     console.log(req.body);
+//     const post = await Post.findOne({ id: postId });
+//     if (!post) {
+//       return res.status(404).json({ message: "Post not found" });
+//     }
+
+//     if (post.stdJoin.includes(studentId)) {
+//       const postAlreadyAdded = (category, array) => {
+//         if (array.includes(postId)) {
+//           return res
+//             .status(400)
+//             .json({ message: `Post already added in ${category}` });
+//         }
+//         return false;
+//       };
+
+//       const student = await postCate.findOne({ studentId: studentId });
+//       const stu = await Student.findOne({ id: studentId });
+
+//       if (!student) {
+//         return res.status(404).json({ message: "Student not found" });
+//       }
+
+//       switch (post.category) {
+//         case "academic":
+//           if (postAlreadyAdded("academic", student.academic)) return;
+//           student.academic.push({ name: postId, point: post.point });
+//           break;
+//         case "volunteer":
+//           if (postAlreadyAdded("volunteer", student.volunteer)) return;
+//           student.volunteer.push({ name: postId, point: post.point });
+//           break;
+//         case "mentalPhysical":
+//           if (postAlreadyAdded("mentalPhysical", student.mentalPhysical))
+//             return;
+//           student.mentalPhysical.push({ name: postId, point: post.point });
+//           break;
+//         default:
+//           return res.status(400).json({ message: "Invalid post category" });
+//       }
+
+//       if (postAlreadyAdded("activities", stu.activities)) return;
+//       stu.activities.push(postId);
+
+//       // Save the updated student document
+//       await student.save();
+//       await stu.save();
+
+//       const attendeesFind = await Attendees.findOne({ postId: postId });
+//       if (attendeesFind) {
+//         attendeesFind.attendees.push({
+//           name: stu.name,
+//           email: stu.email,
+//           postResult: "Joined",
+//         });
+//         await attendeesFind.save();
+//       } else {
+//         // If Attendees does not exist, create a new one
+//         const newAttendees = new Attendees({
+//           postId: postId,
+//           attendees: [
+//             {
+//               name: stu.name,
+//               email: stu.email,
+//               postResult: "Joined",
+//             },
+//           ],
+//         });
+//         await newAttendees.save();
+//       }
+
+//       return res
+//         .status(200)
+//         .json({ message: "Attendance checked successfully" });
+//     }
+//   } catch (error) {
+//     console.error("Error checking attendance:", error);
+//     return res.status(500).json({ message: "Internal server error" });
+//   }
+// }
 const checkAttendance = async (req, res) => {
   try {
     const { postId, studentId } = req.body;
     console.log(req.body);
+
+    // Check if post exists
     const post = await Post.findOne({ id: postId });
     if (!post) {
       return res.status(404).json({ message: "Post not found" });
     }
 
-    if (post.stdJoin.includes(studentId)) {
-      const postAlreadyAdded = (category, array) => {
-        if (array.includes(postId)) {
-          return res
-            .status(400)
-            .json({ message: `Post already added in ${category}` });
-        }
-        return false;
-      };
-
-      const student = await postCate.findOne({ studentId: studentId });
-      const stu = await Student.findOne({ id: studentId });
-
-      if (!student) {
-        return res.status(404).json({ message: "Student not found" });
-      }
-
-      switch (post.category) {
-        case "academic":
-          if (postAlreadyAdded("academic", student.academic)) return;
-          student.academic.push({ name: postId, point: post.point });
-          break;
-        case "volunteer":
-          if (postAlreadyAdded("volunteer", student.volunteer)) return;
-          student.volunteer.push({ name: postId, point: post.point });
-          break;
-        case "mentalPhysical":
-          if (postAlreadyAdded("mentalPhysical", student.mentalPhysical))
-            return;
-          student.mentalPhysical.push({ name: postId, point: post.point });
-          break;
-        default:
-          return res.status(400).json({ message: "Invalid post category" });
-      }
-
-      if (postAlreadyAdded("activities", stu.activities)) return;
-      stu.activities.push(postId);
-
-      // Save the updated student document
-      await student.save();
-      await stu.save();
-
-      const attendeesFind = await Attendees.findOne({ postId: postId });
-      if (attendeesFind) {
-        attendeesFind.attendees.push({
-          name: stu.name,
-          email: stu.email,
-          postResult: "Joined",
-        });
-        await attendeesFind.save();
-      } else {
-        // If Attendees does not exist, create a new one
-        const newAttendees = new Attendees({
-          postId: postId,
-          attendees: [
-            {
-              name: stu.name,
-              email: stu.email,
-              postResult: "Joined",
-            },
-          ],
-        });
-        await newAttendees.save();
-      }
-
+    // Check if student has already joined
+    if (!post.stdJoin.includes(studentId)) {
       return res
-        .status(200)
-        .json({ message: "Attendance checked successfully" });
+        .status(400)
+        .json({ message: "Student has not joined this post" });
     }
+
+    // Helper function to check if post is already added in a category
+    const postAlreadyAdded = (category, array) => {
+      if (array.includes(postId)) {
+        return res
+          .status(400)
+          .json({ message: `Post already added in ${category}` });
+      }
+      return false;
+    };
+
+    // Find student data
+    const student = await postCate.findOne({ studentId: studentId });
+    const stu = await Student.findOne({ id: studentId });
+    if (!student || !stu) {
+      return res.status(404).json({ message: "Student not found" });
+    }
+
+    // Add post to appropriate category in student data
+    switch (post.category) {
+      case "academic":
+        if (postAlreadyAdded("academic", student.academic)) return;
+        student.academic.push({ name: postId, point: post.point });
+        break;
+      case "volunteer":
+        if (postAlreadyAdded("volunteer", student.volunteer)) return;
+        student.volunteer.push({ name: postId, point: post.point });
+        break;
+      case "mentalPhysical":
+        if (postAlreadyAdded("mentalPhysical", student.mentalPhysical)) return;
+        student.mentalPhysical.push({ name: postId, point: post.point });
+        break;
+      default:
+        return res.status(400).json({ message: "Invalid post category" });
+    }
+
+    // Check activities for the student
+    if (stu.activities.includes(postId)) {
+      return res
+        .status(400)
+        .json({ message: "Post already added in activities" });
+    }
+    stu.activities.push(postId);
+
+    // Save updated student documents
+    await student.save();
+    await stu.save();
+
+    // Update attendees list
+    let attendeesFind = await Attendees.findOne({ postId: postId });
+    if (attendeesFind) {
+      attendeesFind.attendees.push({
+        name: stu.name,
+        email: stu.email,
+        postResult: "Joined",
+      });
+      await attendeesFind.save();
+    } else {
+      const newAttendees = new Attendees({
+        postId: postId,
+        attendees: [
+          {
+            name: stu.name,
+            email: stu.email,
+            postResult: "Joined",
+          },
+        ],
+      });
+      await newAttendees.save();
+    }
+
+    return res.status(200).json({ message: "Attendance checked successfully" });
   } catch (error) {
     console.error("Error checking attendance:", error);
     return res.status(500).json({ message: "Internal server error" });
   }
 };
-
 module.exports = {
   getAllPost,
   getAllPostAssistant,
