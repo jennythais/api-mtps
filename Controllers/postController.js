@@ -1248,6 +1248,7 @@ const checkAttendance = async (req, res) => {
         totalPoints: 0,
       });
       await newStudent.save();
+      student = await postCate.findOne({ studentId: studentId });
     }
     // Add post to appropriate category in student data
     switch (post.category) {
