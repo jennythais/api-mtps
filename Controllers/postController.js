@@ -1071,42 +1071,42 @@ const joinPost = async (req, res) => {
  *                type: string
  *                description: ID of the student
  *   responses:
- *    200:
- *     description: Attendance checked successfully
- *     content:
- *      application/json:
- *       schema:
- *          type: object
- *          properties:
- *            message:
- *             type: string
- *    400:
- *     description: Post already added in category
- *     content:
- *      application/json:
- *       schema:
- *         type: object
- *         properties:
- *           message:
- *             type: string
- *    404:
- *     description: Post not found
- *     content:
- *      application/json:
- *       schema:
- *         type: object
- *         properties:
- *           message:
- *             type: string
- *    500:
- *     description: Internal server error
- *     content:
- *      application/json:
- *       schema:
- *         type: object
- *         properties:
- *           message:
- *             type: string
+ *      200:
+ *        description: Attendance checked successfully
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *      400:
+ *        description: Post already added in category
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *      404:
+ *        description: Post not found
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *      500:
+ *        description: Internal server error
+ *        content:
+ *           application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
  */
 const checkAttendance = async (req, res) => {
   try {
