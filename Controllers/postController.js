@@ -723,14 +723,6 @@ const getAllAttendees = async (req, res) => {
  *                 type: number
  *                 description: Number of participants
  *                 default: 0
- *               stdJoin:
- *                 type: array
- *                 items:
- *                   type: string
- *                   description: List of student IDs joining the post
- *               testId:
- *                 type: string
- *                 description: ID of the test associated with the post
  *               category:
  *                 type: string
  *                 description: Category of the post
@@ -804,8 +796,6 @@ const createPost = async (req, res) => {
       point,
       location,
       numberParticipants,
-      stdJoin,
-      testId,
       category,
       semester,
       yearStart,
@@ -834,7 +824,7 @@ const createPost = async (req, res) => {
 
     // Generate a unique UUID for the post ID
     const postId = uuidv4();
-
+    const testId = uuidv4();
     // Create the post
     const result = await Post.create({
       id: postId,
@@ -850,7 +840,7 @@ const createPost = async (req, res) => {
       location,
       numberParticipants,
       stdJoin,
-      testId,
+      testId: testId,
       category,
       semester,
       yearStart,
