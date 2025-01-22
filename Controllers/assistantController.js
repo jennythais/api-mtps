@@ -1,5 +1,5 @@
 // Import necessary modules
-const Student = require("../Models/student"); 
+const Student = require("../Models/student");
 const PointCategory = require("../Models/pointCategory");
 
 /**
@@ -61,7 +61,7 @@ const getAllStudent = async (req, res) => {
  * tags:
  *   - name: Assistant
  *     description: Assistant management
- * /api/student-by-faculty/{faculty}:
+ * /api/student-by-faculty/:faculty:
  *   get:
  *     summary: Get students by faculty
  *     description: Retrieve a list of students belonging to a specified faculty
@@ -80,44 +80,47 @@ const getAllStudent = async (req, res) => {
  *         content:
  *           application/json:
  *             schema:
- *               type: array
- *               items:
- *                 type: object
- *                 properties:
- *                   st:
- *                     type: object
- *                     properties:
- *                       name:
- *                         type: string
- *                       id:
- *                         type: string
- *                   point:
- *                     type: object
- *                     nullable: true
- *                     properties:
- *                       studentId:
- *                         type: string
- *                       academic:
- *                         type: array
- *                         items:
- *                           type: string
- *                       volunteer:
- *                         type: array
- *                         items:
- *                           type: string
- *                       mentalPhysical:
- *                         type: array
- *                         items:
- *                           type: string
- *                       discipline:
- *                         type: array
- *                         items:
- *                           type: object
- *                           properties:
- *                             name:
- *                               type: string
- *                             point:
- *                               type: number
+ *               type: object
+ *               properties:
+ *                 data:
+ *                   type: object
+ *                   properties:    
+ *                    st:
+ *                      type: object
+ *                      properties:
+ *                        name:
+ *                          type: string
+ *                        id:
+ *                          type: string
+ *                    point:
+ *                      type: object
+ *                      nullable: true
+ *                      properties:
+ *                        studentId:
+ *                          type: string
+ *                        academic:
+ *                          type: array
+ *                          items:
+ *                            type: string
+ *                        volunteer:
+ *                           type: array
+ *                           items:
+ *                            type: string
+ *                        mentalPhysical:
+ *                           type: array
+ *                           items:
+ *                              type: string
+ *                        discipline:
+ *                           type: array
+ *                           items:
+ *                              type: object
+ *                              properties:
+ *                                name:
+ *                                  type: string
+ *                                point:
+ *                                  type: number
+ *                    message:
+ *                      type: string
  *       400:
  *         description: Missing faculty parameter
  *       404:
@@ -146,7 +149,10 @@ const getStudentByF = async (req, res) => {
         };
       })
     );
-    res.status(200).json(studentF);
+    res.status(200).json({
+      data: studentF,
+      message: "Student found successfully",
+    });
   } catch (error) {
     console.error("Lỗi khi tìm sinh viên:", error);
     res.status(500).json({ message: "Lỗi máy chủ nội bộ" });
