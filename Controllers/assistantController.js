@@ -111,7 +111,7 @@ const getAllStudent = async (req, res) => {
  * tags:
  *   - name: Assistant
  *     description: Assistant management
- * /api/student-by-faculty/:faculty:
+ * /api/student-by-faculty/{faculty}:
  *   get:
  *     summary: Get students by faculty
  *     description: Retrieve a list of students belonging to a specified faculty
@@ -133,50 +133,123 @@ const getAllStudent = async (req, res) => {
  *               type: object
  *               properties:
  *                 data:
- *                   type: object
- *                   properties:
- *                    st:
- *                      type: object
- *                      properties:
- *                        name:
- *                          type: string
- *                        id:
- *                          type: string
- *                    point:
- *                      type: object
- *                      nullable: true
- *                      properties:
- *                        studentId:
- *                          type: string
- *                        academic:
- *                          type: array
- *                          items:
- *                            type: string
- *                        volunteer:
- *                           type: array
- *                           items:
- *                            type: string
- *                        mentalPhysical:
- *                           type: array
- *                           items:
- *                              type: string
- *                        discipline:
- *                           type: array
- *                           items:
- *                              type: object
- *                              properties:
- *                                name:
- *                                  type: string
- *                                point:
- *                                  type: number
- *                    message:
- *                      type: string
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       id:
+ *                         type: string
+ *                       name:
+ *                         type: string
+ *                       email:
+ *                         type: string
+ *                       facultyName:
+ *                         type: string
+ *                       activities:
+ *                         type: array
+ *                         items:
+ *                           type: string
+ *                       point:
+ *                         type: object
+ *                         nullable: true
+ *                         properties:
+ *                           studentId:
+ *                             type: string
+ *                           academic:
+ *                             type: array
+ *                             items:
+ *                               type: object
+ *                               properties:
+ *                                 name:
+ *                                   type: string
+ *                                 point:
+ *                                   type: number
+ *                           totalAcademic:
+ *                             type: number
+ *                           volunteer:
+ *                             type: array
+ *                             items:
+ *                               type: object
+ *                               properties:
+ *                                 name:
+ *                                   type: string
+ *                                 point:
+ *                                   type: number
+ *                           totalVolunteer:
+ *                             type: number
+ *                           mentalPhysical:
+ *                             type: array
+ *                             items:
+ *                               type: object
+ *                               properties:
+ *                                 name:
+ *                                   type: string
+ *                                 point:
+ *                                   type: number
+ *                           totalMentalPhysical:
+ *                             type: number
+ *                           discipline:
+ *                             type: array
+ *                             items:
+ *                               type: object
+ *                               properties:
+ *                                 name:
+ *                                   type: string
+ *                                 point:
+ *                                   type: number
+ *                           reward:
+ *                             type: array
+ *                             items:
+ *                               type: object
+ *                               properties:
+ *                                 name:
+ *                                   type: string
+ *                                 point:
+ *                                   type: number
+ *                           totalReward:
+ *                             type: number
+ *                           pioneering:
+ *                             type: array
+ *                             items:
+ *                               type: object
+ *                               properties:
+ *                                 name:
+ *                                   type: string
+ *                                 point:
+ *                                   type: number
+ *                           totalPioneering:
+ *                             type: number
+ *                           totalPoints:
+ *                             type: number
+ *                 message:
+ *                   type: string
  *       400:
  *         description: Missing faculty parameter
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
  *       404:
  *         description: No students found for the specified faculty
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
  *       500:
  *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
  */
 const getStudentByF = async (req, res) => {
   try {
@@ -185,7 +258,7 @@ const getStudentByF = async (req, res) => {
       return res.status(400).json({ message: "Missing faculty" });
     }
     const studentData = await Student.find({ facultyName: faculty }).select(
-      "name id"
+      "name id email facultyName activities"
     );
     if (studentData.length === 0) {
       return res.status(404).json({ message: "Student not found " });
@@ -194,7 +267,11 @@ const getStudentByF = async (req, res) => {
       studentData.map(async (st) => {
         const pointCate = await PointCategory.findOne({ studentId: st.id });
         return {
-          st,
+          id: st.id,
+          name: st.name,
+          email: st.email,
+          facultyName: st.facultyName,
+          activities: st.activities,
           point: pointCate || null,
         };
       })
@@ -208,8 +285,6 @@ const getStudentByF = async (req, res) => {
     res.status(500).json({ message: "Lỗi máy chủ nội bộ" });
   }
 };
-
-
 
 /**
  * @swagger
