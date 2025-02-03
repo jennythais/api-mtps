@@ -389,6 +389,7 @@ const doTest = async (req, res) => {
       });
       await newAttendees.save();
     }
+
     student.activities.push({
       id: post.id,
       name: post.name,

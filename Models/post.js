@@ -19,6 +19,7 @@ const postSchema = new mongoose.Schema({
   semester: { type: String, enum: ["HK1", "HK2", "HK3"], required: true },
   yearStart: { type: Number, required: true },
   yearEnd: { type: Number, required: true },
+  created: { type: Date, default: Date.now },
 });
 
 const Post = mongoose.model("Post", postSchema);

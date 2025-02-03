@@ -15,6 +15,7 @@ const testSchema = new mongoose.Schema({
   testId: { type: String, required: true, unique: true },
   questions: [questionSchema], // Array of questions
   target: { type: Number, required: true }, // The 'target' field
+  created: { type: Date, default: Date.now },
 });
 
 const Test = mongoose.model("Test", testSchema);
