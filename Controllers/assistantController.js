@@ -272,7 +272,7 @@ const getStudentByF = async (req, res) => {
           email: st.email,
           facultyName: st.facultyName,
           activities: st.activities,
-          point: pointCate || null,
+          trainingPoint: pointCate || null,
         };
       })
     );

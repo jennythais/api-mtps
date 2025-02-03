@@ -1184,7 +1184,6 @@ const joinPost = async (req, res) => {
 const checkAttendance = async (req, res) => {
   try {
     const { postId, studentId } = req.body;
-    console.log(req.body);
 
     // Check if post exists
     const post = await Post.findOne({ id: postId });

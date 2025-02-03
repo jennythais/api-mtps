@@ -361,8 +361,6 @@ const doTest = async (req, res) => {
         default:
           return res.status(400).json({ message: "Invalid post category" });
       }
-
-      // Save the updated student document
       await catePoint.save();
     }
 
@@ -379,7 +377,6 @@ const doTest = async (req, res) => {
       });
       await attendeesFind.save();
     } else {
-      // If Attendees does not exist, create a new one
       const newAttendees = new Attendees({
         postId: post.id,
         attendees: [
@@ -392,11 +389,14 @@ const doTest = async (req, res) => {
       });
       await newAttendees.save();
     }
-
-    student.activities.push(post.id);
+    student.activities.push({
+      id: post.id,
+      name: post.name,
+      date: post.date,
+      location: post.location,
+      point: post.point,
+    });
     await student.save();
-
-    // Continue with the rest of the function
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal Server Error" });

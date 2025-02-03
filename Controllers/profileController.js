@@ -211,15 +211,6 @@ const updateTrainingPoint = async (req, res) => {
     if (!student) {
       return res.status(404).json({ error: "Student not found" });
     }
-    let pointPost = 0;
-
-    for (const postId of student.activities) {
-      const post = await Post.findOne({ id: postId });
-      if (!post) {
-        return res.status(404).json({ error: "Post not found" });
-      }
-      pointPost += post.point;
-    }
     const pointCategory = await PointCategory.findOne({ studentId: id });
     if (!pointCategory) {
       pointCategory = new PointCategory({
@@ -235,11 +226,10 @@ const updateTrainingPoint = async (req, res) => {
         reward: [],
         totalReward: 0,
         pioneering: [],
-        totalPoints: pointPost,
+        totalPoints: 0,
       });
       await pointCategory.save();
     }
-    pointCategory.totalPoints = pointPost;
     return res.json({ message: "Training point updated successfully" });
   } catch (error) {
     console.error(error);
@@ -397,6 +387,12 @@ const updateTotalOfCategory = async () => {
           (acc, cur) => acc + cur.point,
           0
         );
+        category.totalPoints =
+          category.totalAcademic +
+          category.totalVolunteer +
+          category.totalMentalPhysical +
+          category.totalReward +
+          category.totalPioneering;
 
         await category.save();
       }
