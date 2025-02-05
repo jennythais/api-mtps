@@ -798,8 +798,6 @@ const createPost = async (req, res) => {
       numberParticipants,
       category,
       semester,
-      yearStart,
-      yearEnd,
     } = req.body;
 
     // Check for missing required fields
@@ -815,9 +813,7 @@ const createPost = async (req, res) => {
       !location ||
       !category ||
       !numberParticipants ||
-      !semester ||
-      !yearStart ||
-      !yearEnd
+      !semester 
     ) {
       return res.status(400).json({ message: "Missing required fields" });
     }
@@ -843,8 +839,6 @@ const createPost = async (req, res) => {
       testId: testId,
       category,
       semester,
-      yearStart,
-      yearEnd,
     });
 
     res.status(201).json({
