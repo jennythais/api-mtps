@@ -813,7 +813,7 @@ const createPost = async (req, res) => {
     const postId = uuidv4();
     const testId = uuidv4();
     // Create the post
-    const result = await Post.create({
+    const post = await Post.create({
       id: postId,
       name,
       desc,
@@ -834,7 +834,10 @@ const createPost = async (req, res) => {
 
     res.status(201).json({
       message: "Post created successfully",
-      postId: result.insertedId,
+      postId: post.insertedId,
+      data: {
+        post,
+      },
     });
   } catch (error) {
     console.error("Error creating post:", error);
