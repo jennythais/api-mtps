@@ -728,14 +728,7 @@ const getAllAttendees = async (req, res) => {
  *                 description: Category of the post
  *               semester:
  *                 type: string
- *                 enum: ["HK1", "HK2", "HK3"]
  *                 description: Semester associated with the post
- *               yearStart:
- *                 type: number
- *                 description: Start year of the semester
- *               yearEnd:
- *                 type: number
- *                 description: End year of the semester
  *             required:
  *               - name
  *               - desc
@@ -749,8 +742,6 @@ const getAllAttendees = async (req, res) => {
  *               - numberParticipants
  *               - category
  *               - semester
- *               - yearStart
- *               - yearEnd
  *     responses:
  *       201:
  *         description: Post created successfully
@@ -813,7 +804,7 @@ const createPost = async (req, res) => {
       !location ||
       !category ||
       !numberParticipants ||
-      !semester 
+      !semester
     ) {
       return res.status(400).json({ message: "Missing required fields" });
     }
@@ -835,7 +826,7 @@ const createPost = async (req, res) => {
       point,
       location,
       numberParticipants,
-      stdJoin,
+      stdJoin: [],
       testId: testId,
       category,
       semester,
