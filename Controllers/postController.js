@@ -8,36 +8,36 @@ const ExpiredPost = require("../Models/expiredPost");
 
 const moment = require("moment-timezone");
 const { v4: uuidv4 } = require("uuid");
-
 const processExpiredPosts = async () => {
   try {
     const posts = await Post.find();
-    
+
     for (const post of posts) {
-      if (post && post.endDate && post.endTime) {
+      if (post && post.startAt && post.endAt) {
+        // Convert timestamps to moment objects with Asia/Ho_Chi_Minh timezone
+        const startAt = moment.tz(post.startAt, "Asia/Ho_Chi_Minh");
+        const endAt = moment.tz(post.endAt, "Asia/Ho_Chi_Minh");
+        const currentDate = moment.tz("Asia/Ho_Chi_Minh"); // Get current date/time in correct timezone
+
         console.log(post);
-        console.log(post.endDate);
-        console.log(post.endTime);
+        console.log("Start At:", startAt.format("YYYY-MM-DD HH:mm"));
+        console.log("End At:", endAt.format("YYYY-MM-DD HH:mm"));
+        console.log("Current:", currentDate.format("YYYY-MM-DD HH:mm"));
 
-        const endDateTime = moment.tz(
-          `${post.endDate}T${post.endTime}`,
-          "YYYY-MM-DDTHH:mm",
-          "Asia/Ho_Chi_Minh"
-        );
-
-        console.log(endDateTime);
-        const copyPost = post;
-        const currentDate = moment.tz("Asia/Ho_Chi_Minh");
-
-        if (endDateTime < currentDate) {
+        // Check if the post is expired
+        if (
+          endAt.isBefore(currentDate, "day") ||
+          (endAt.isSame(currentDate, "day") && endAt.isBefore(currentDate))
+        ) {
+          // Create expired post entry
           const expiredPost = new ExpiredPost({
-            postFields: copyPost,
-            expiredAt: endDateTime,
+            postFields: post, // Store the whole post
+            expiredAt: endAt.toDate(), // Save the exact expiration time
           });
 
+          // Save expired post and delete original post
           await expiredPost.save();
-
-          await Post.findOneAndDelete({ id: post.id });
+          await Post.findOneAndDelete({ _id: post._id });
         }
       }
     }
@@ -45,6 +45,37 @@ const processExpiredPosts = async () => {
     console.error("Error processing expired posts:", error);
   }
 };
+
+// const processExpiredPosts = async () => {
+//   try {
+//     const posts = await Post.find();
+
+//     for (const post of posts) {
+//       if (post && post.startAt && post.endAt) {
+//         const endDateTime = moment.tz(
+//           `${post.startAt} ${post.endAt}`,
+//           "YYYY-MM-DDTHH:mm",
+//           "Asia/Ho_Chi_Minh"
+//         );
+//         const copyPost = post;
+//         const currentDate = moment.tz("Asia/Ho_Chi_Minh");
+
+//         if (endDateTime < currentDate) {
+//           const expiredPost = new ExpiredPost({
+//             postFields: copyPost,
+//             expiredAt: endDateTime,
+//           });
+
+//           await expiredPost.save();
+
+//           await Post.findOneAndDelete({ id: post.id });
+//         }
+//       }
+//     }
+//   } catch (error) {
+//     console.error("Error processing expired posts:", error);
+//   }
+// };
 /**
  * @swagger
  * tags:
@@ -786,10 +817,8 @@ const createPost = async (req, res) => {
       desc,
       facultyName,
       status,
-      startDate,
-      startTime,
-      endDate,
-      endTime,
+      endAt,
+      startAt,
       point,
       location,
       numberParticipants,
@@ -802,10 +831,8 @@ const createPost = async (req, res) => {
       !name ||
       !desc ||
       !facultyName ||
-      !startDate ||
-      !startTime ||
-      !endDate ||
-      !endTime ||
+      !startAt ||
+      !endAt ||
       !point ||
       !location ||
       !category ||
@@ -825,10 +852,8 @@ const createPost = async (req, res) => {
       desc,
       facultyName,
       status,
-      startDate,
-      startTime,
-      endDate,
-      endTime,
+      startAt,
+      endAt,
       point,
       location,
       numberParticipants,
