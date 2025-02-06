@@ -11,33 +11,20 @@ const { v4: uuidv4 } = require("uuid");
 const processExpiredPosts = async () => {
   try {
     const posts = await Post.find();
-
     for (const post of posts) {
       if (post && post.startAt && post.endAt) {
-        // Convert timestamps to moment objects with Asia/Ho_Chi_Minh timezone
-        const startAt = moment.tz(post.startAt, "Asia/Ho_Chi_Minh");
         const endAt = moment.tz(post.endAt, "Asia/Ho_Chi_Minh");
-        const currentDate = moment.tz("Asia/Ho_Chi_Minh"); // Get current date/time in correct timezone
-
-        console.log(post);
-        console.log("Start At:", startAt.format("YYYY-MM-DD HH:mm"));
-        console.log("End At:", endAt.format("YYYY-MM-DD HH:mm"));
-        console.log("Current:", currentDate.format("YYYY-MM-DD HH:mm"));
-
-        // Check if the post is expired
+        const currentDate = moment.tz("Asia/Ho_Chi_Minh"); 
         if (
           endAt.isBefore(currentDate, "day") ||
           (endAt.isSame(currentDate, "day") && endAt.isBefore(currentDate))
         ) {
-          // Create expired post entry
           const expiredPost = new ExpiredPost({
-            postFields: post, // Store the whole post
-            expiredAt: endAt.toDate(), // Save the exact expiration time
+            postFields: post,
+            expiredAt: endAt.toDate(), 
           });
-
-          // Save expired post and delete original post
           await expiredPost.save();
-          await Post.findOneAndDelete({ _id: post._id });
+          await Post.findOneAndDelete({ id: post.id});
         }
       }
     }
