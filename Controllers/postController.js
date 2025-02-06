@@ -12,14 +12,20 @@ const { v4: uuidv4 } = require("uuid");
 const processExpiredPosts = async () => {
   try {
     const posts = await Post.find();
-
+    
     for (const post of posts) {
       if (post && post.endDate && post.endTime) {
+        console.log(post);
+        console.log(post.endDate);
+        console.log(post.endTime);
+
         const endDateTime = moment.tz(
           `${post.endDate}T${post.endTime}`,
           "YYYY-MM-DDTHH:mm",
           "Asia/Ho_Chi_Minh"
         );
+
+        console.log(endDateTime);
         const copyPost = post;
         const currentDate = moment.tz("Asia/Ho_Chi_Minh");
 
@@ -836,7 +842,7 @@ const createPost = async (req, res) => {
       message: "Post created successfully",
       postId: post.insertedId,
       data: {
-        post,
+        data: post,
       },
     });
   } catch (error) {
